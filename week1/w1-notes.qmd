@@ -66,6 +66,8 @@ li <- list(vec = vec,
 ```{r}
 df <- data.frame(x = c("a", "b", "c"),
                  y = c(1, 2, 3))
+df
+mode(df)
 ```
 
 ## Indexing
