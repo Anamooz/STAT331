@@ -1,7 +1,7 @@
 ---
 title: "PA 1: Find the Mistakes"
 subtitle: "Working with R Objects"
-author: "YOUR NAME "
+author: "Trycia Vong"
 format: html
 embed-resources: true
 execute:
