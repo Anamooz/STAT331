@@ -5,6 +5,9 @@ format: html
 embed-resources: true
 code-tools: true
 editor: source
+execute:
+  echo: true
+  error: true
 ---
 
 ## Quarto
@@ -15,15 +18,34 @@ Quarto enables you to weave together content and executable code into a finished
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
+## Tooth Growth Dataset
+
 ```{r}
-1 + 1
+# Load a dataset into the R Environment.
+data(ToothGrowth)
+
+# Look at the summary of the variables in the dataset.
+summary(ToothGrowth)
+
+# Look at a frequency table of a categorical variable.
+table(ToothGrowth$supp)
 ```
+*This dataset investigates the effect of vitamin C on tooth growth in guinea pigs.*
+
+*The two supplement delivery methods include OJ (orange juice) and VC (ascorbic acid).*
+
+*It is a data frame with 60 observations and 3 variables.*
 
 You can add options to executable code like this
 
 ```{r}
-#| echo: false
-2 * 2
+# make sure to load the package ggplot2
+library(ggplot2)
+ggplot(data = ToothGrowth, 
+       aes(x = supp,
+           y = len)) +
+  geom_boxplot() +
+  labs()
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
