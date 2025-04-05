@@ -5,18 +5,13 @@ format: html
 embed-resources: true
 code-tools: true
 editor: source
+output:
+  html_document:
+     code_folding: hide #https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html
 execute:
   echo: true
   error: true
 ---
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ## Tooth Growth Dataset
 
@@ -30,6 +25,7 @@ summary(ToothGrowth)
 # Look at a frequency table of a categorical variable.
 table(ToothGrowth$supp)
 ```
+
 *This dataset investigates the effect of vitamin C on tooth growth in guinea pigs.*
 
 *The two supplement delivery methods include OJ (orange juice) and VC (ascorbic acid).*
@@ -39,13 +35,35 @@ table(ToothGrowth$supp)
 You can add options to executable code like this
 
 ```{r}
-# make sure to load the package ggplot2
+#| fig-align: center
+#| fig-cap: "Box plot comparison of guinea pig teeth length from different supplement delivery methods"
 library(ggplot2)
-ggplot(data = ToothGrowth, 
-       aes(x = supp,
-           y = len)) +
-  geom_boxplot() +
-  labs()
+ggplot(data = ToothGrowth, aes(x = supp,y = len)) + geom_boxplot() + labs(title = "Box Plot Comparing Teeth Length Between 2 Different Supplement Delivery Methods", x = "Supplement Type", y = "Length")
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Summary of Data
+
+The section includes the dataset of the growth of teeth length in guinea pigs using two different supplement methods. It also includes a comparsion of box plots between these two methods.
+
+
+```{r}
+# We will add code to conduct a t-test here! https://www.datacamp.com/tutorial/t-tests-r-tutorial
+t.test(len ~ supp, 
+       data = ToothGrowth, 
+       alternative = c("two.sided"),
+       mu = 0,
+       var.equal = FALSE,
+       conf.level = 0.95,
+       )
+```
+1. We fail to reject the null hypothesis, treatment mean tooth length for the OJ supplement delivery method is the same as the treatment mean tooth length for the VC supplement delivery method, based on the p-value of 0.06 with a standard alpha of 0.05 and conclude that both delivery methods are the same.
+
+2. We are 95% confident that the true difference in means between teeth length of different supplement types of orange juice and ascorbic acid lies in the interval -0.1710156 to 7.5710156.
+
+## Summary of T-Test
+
+The section includes a t.test of the dataset of the growth of teeth length in guinea pigs using two different supplement methods. It also includes a conclusion and interpretation of the confidence interval of the t.test results.
+
+## Genshin Impact
+
+![Genshin Impact, a very popular gacha game I play religiously](../week1/genshin.png)
