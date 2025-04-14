@@ -1,0 +1,259 @@
+---
+title: "Lab 2: Exploring Rodents with `ggplot2`"
+author: "Trycia Vong"
+format: html
+toc: true
+embed-resources: true
+code-tools: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+
+# Setup
+
+```{r setup}
+# code for loading packages goes here!
+library(tidyverse)
+```
+
+# Data Context
+
+The Portal Project is a long-term ecological study being conducted near Portal, AZ. Since 1977, the site has been used to study the interactions among rodents, ants, and plants, as well as their respective responses to climate. To study the interactions among organisms, researchers experimentally manipulated access to 24 study plots. This study has produced over 100 scientific papers and is one of the longest running ecological studies in the U.S.
+
+We will be investigating the animal species diversity and weights found within plots at the Portal study site for a subset of the study data. The data are stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:
+
+| Column          | Description                        |
+|-----------------|------------------------------------|
+| `record_id`       | Unique ID for the observation      |
+| `month`           | month of observation               |
+| `day`             | day of observation                 |
+| `year`            | year of observation                |
+| `plot_id`         | ID of a particular plot            |
+| `species_id`      | 2-letter code                      |
+| `sex`             | sex of animal ("M", "F")           |
+| `hindfoot_length` | length of the hindfoot in mm       |
+| `weight`          | weight of the animal in grams      |
+| `genus`           | genus of animal                    |
+| `species`         | species of animal                  |
+| `taxa`            | e.g. Rodent, Reptile, Bird, Rabbit |
+| `plot_type`       | type of plot                       |
+
+# Reading the Data into `R`
+
+
+```{r data}
+# Code for question 0!
+surveys <- read_csv(file = "surveys.csv")
+surveys
+```
+
+**1. What are the dimensions (# of rows and columns) of these data?** 
+
+<!-- You can either write code here or in the code chunk for #0, but I **must** see the code you used to address this question!  -->
+```{r}
+# https://how.dev/answers/how-to-check-the-dimension-of-a-dataframe-in-r
+dim(surveys)
+```
+
+
+**2. What are the data types of the variables in this dataset?**
+
+<!-- You can either write code here or in the code chunk for #0, but I **must** see the code you used to address this question!  -->
+```{r}
+spec(surveys)
+```
+
+
+**3. What kinds of animals are included in the dataset? Birds? Rabbits? ect. (Hint: you will want to look at the variable descriptions to answer this question)** 
+
+```{r animal-type}
+# Code for question 3!
+uniqueTaxa <- unique(surveys$taxa)
+uniqueTaxa
+```
+
+# Exploratory Data Analysis with **`ggplot2`**
+
+`ggplot()` graphics are built step by step by adding new elements. Adding layers in this fashion allows for extensive flexibility and customization of plots.
+
+To build a `ggplot()`, we will use the following basic template that can be used for different types of plots:
+
+```{r}
+#| eval: false
+ggplot(data = <DATA>,
+       mapping = aes(<VARIABLE MAPPINGS>)) +
+  <GEOM_FUNCTION>()
+```
+
+Let's get started!
+
+## Scatterplot
+
+```{r scatterplot}
+# Scatterplot code for question s 4-8! 
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length)) +
+  geom_point(alpha = 0.1) +
+  facet_wrap(vars(species)) +
+  labs(title = "Scatterplot of Different Rodent Species' Weight and Hindfoot Length", subtitle = "Hindfoot Length (mm)", x = "Weight (g)", y = "")
+```
+
+<!-- **4. First, let's create a scatterplot of the relationship between `weight` (on the $x$-axis) and `hindfoot_length` (on the $y$-axis).** -->
+
+<!-- We can see there are **a lot** of points plotted on top of each other. Let's try and modify this plot to extract more information from it. -->
+
+<!-- **5. Let's add transparency (`alpha`) to the points, to make the points more transparent and (possibly) easier to see.** -->
+
+<!-- Despite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let's try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better. -->
+
+<!-- **6. Facet your scatterplot by `species`.** -->
+
+<!-- **7. No plot is complete without axis labels and a title. Include reader friendly labels and a title to your plot.** -->
+
+<!-- It takes a larger cognitive load to read text that is rotated. It is common practice in many journals and media outlets to move the $y$-axis label to the top of the graph under the title. -->
+
+<!-- **8. Specify your $y$-axis label to be empty and move the $y$-axis label into the subtitle. You may overwrite your code from Q7.** -->
+
+
+## Boxplots
+
+**9. 
+
+**Excalidraw**
+
+![](excalidraw.png)   <!-- Put the file path of your saved game plan in the parentheses! -->
+
+```{r boxplot}
+#https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
+# Boxplot code for question 10 - 15!
+ggplot(data = surveys, mapping = aes(x = species, y = weight)) +
+  labs(title = "Boxplot of Different Rodent Species' Weights", x = "Species", y = "Weight (g)") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(alpha = 0.3, color = "orange3")
+```
+
+<!-- **10. Implement your game plan to create side-by-side boxplots to visualize the distribution of weight within each species.** -->
+
+<!-- A fundamental complaint of boxplots is that they do not plot the raw data. However, with **ggplot** we can add the raw points on top of the boxplots! -->
+
+<!-- **11. Add another layer to your previous plot that plots each observation.** -->
+
+<!-- Alright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using `geom_jitter()`. -->
+
+<!-- **12. Remove the previous layer and include a `geom_jitter()` layer instead. (You can overwrite your code for Q11)** -->
+
+<!-- That should look a bit better! But its really hard to see the points when everything is black. -->
+
+<!-- **13. Set the `color` aesthetic in `geom_jitter()` to change the color of the points and add set the `alpha` aesthetic to add transparency.** -->
+
+<!-- Great! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from `geom_boxplot()` as outliers and again from `geom_jitter()`! -->
+
+<!-- **14. Inspect the help file for `geom_boxplot()` and see how you can remove the outliers from being plotted by `geom_boxplot()`. Make this change in your code!** -->
+
+<!-- Some small changes can make **big** differences to plots. One of these changes are better labels for a plot's axes and legend. -->
+
+<!-- **15. Modify the $x$-axis and $y$-axis labels to describe what is being plotted. Be sure to include any necessary units! You might also be getting overlap in the species names -- use `theme(axis.text.x = ____)` or `theme(axis.text.y = ____)` to turn the species axis labels 45 degrees. (You will need to look at the documentation or Google to find the syntax for this!)** -->
+
+<!-- Some people (and journals) prefer for boxplots to be stacked with a specific orientation! Let's practice changing the orientation of our boxplots. -->
+
+<!-- **16. Copy-paste your boxplot code from above. Flip the orientation of your boxplots. If you created horizontally stacked boxplots, your boxplots should now be stacked vertically. If you had vertically stacked boxplots, you should now stack your boxplots horizontally!** -->
+
+```{r}
+#https://r-charts.com/distribution/box-plot-ggplot2/#:~:text=There%20are%20two%20main%20ways,Option%201%3A%20changing%20the%20argument.&text=Option%202%3A%20using%20coord_flip%20.
+# Copy-paste boxplot code. Then modify for question 16!
+ggplot(data = surveys, mapping = aes(x = species, y = weight)) +
+  labs(title = "Boxplot of Different Rodent Species' Weights", x = "Species", y = "Weight (g)") +
+  geom_boxplot(outlier.shape = NA) +
+  coord_flip() +
+  geom_jitter(alpha = 0.3, color = "orange3")
+```
+
+Notice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots. This is good practice!
+
+
+# Conducting Statistical Analyses
+
+Exploratory Data Analysis (EDA) is always a great start to investigating a dataset. Can we see a relationship between rodent weight and hindfoot length? How does rodent weight differ between species? After performing EDA, we can then conduct appropriate statistical analyses to formally investigate what we have seen.
+
+In this section, we are going to conduct a one-way analysis of variance (ANOVA) to compare mean weight between the fourteen species.
+
+::: callout-tip
+
+## Refresher on one-way ANOVA
+
+While a second course in statistics is a pre-requisite for this class, you may want a [refresher](https://openintro-ims.netlify.app/inference-many-means) on conducting a one-way ANOVA.
+
+:::
+
+I have outlined the null and alternative hypotheses we will be testing:
+
+
+::: {.callout-note icon=false}
+
+## Null
+
+The population mean weight is **the same** between **all** fourteen rodent species.
+
+:::
+
+::: {.callout-note icon=false}
+
+## Alternative
+
+**At least one** rodent species has a different population mean weight.
+
+:::
+
+**17. Using `aov()`, complete the code below to carry out the analysis.**
+
+```{r}
+# response(number) ~ predictor(categorical), predict weight based on species 
+species_mod <- aov(surveys$weight ~ surveys$species, data = surveys)
+summary(species_mod)
+```
+**18. Based on the results of the ANOVA F-test, draw a conclusion in context of the hypotheses. Make sure to cite appropriate output from above.**
+
+**Conclusion: **
+Assuming alpha = 0.05, we reject the null hypothesis of the population mean weight being the same between all fourteen rodent species and conclude that there is at least one difference in one rodent species with a different population mean weight.
+
+
+```{r}
+library(emmeans)
+```
+
+**19. Using the `species_mod` from above and the `emmeans()` function, complete the code below to obtain estimated model mean rodent weights for each species**
+
+```{r}
+species_estimates <- emmeans(species_mod, specs = "species")
+species_estimates
+```
+
+**20. Now that you have obtained the estimated model mean rodent weights, conduct pairwise comparisons using the `pairs()` function from the `emmeans` package.**
+
+```{r}
+# carry out pairwise comparisons between species.
+pairwiseComparison <- pairs(species_estimates)
+pairwiseComparison
+```
+
+
+# Use Your Graphics Skills for Evil
+
+**21. Create the *ugliest version* of a scatterplot showing the relationship between `weight` and `hindfoot_length` (where you started in Q4). Then, *explain why* you made the decisions you did, and which principles of good graphics you’ve intentionally violated.**
+
+
+```{r ugly-graphic}
+# Make your ugly graphic here!
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length)) +
+  geom_point(alpha = 0.5, aes(color = species), size = 5) +
+  geom_line(aes(color = species)) +
+  labs(title = "Scatterplot of Different Rodent Species' Weight and Hindfoot Length", x = "Weight (g)", y = "Hindfoot Length (mm)") +
+  theme(axis.text.x = element_text(angle = 180), axis.text.y = element_text(angle = 180)) 
+#Removed the facetting so you only have to look at one chart (now you cant see properly indiv pts properly), 
+#various colors to be more visually appealing (too many rainbow colors, hard for colorblind ppl), made the points bigger (visual clutter), #added lines to see each species (visual clutter), rotated the axis labels (too much brain power)   
+
+```
+
