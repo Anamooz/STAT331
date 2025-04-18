@@ -211,11 +211,12 @@ courseCount
 Helpful functions: `if_any()`
 :::
 
+The instructor with the id "56347" has some missing values. It is the "PAB3SE004PA" course and the missing variable is percent_failed_cur.
+
 ```{r}
-# code chunk for Q6
+# code chunk for Q6 https://stackoverflow.com/questions/69720079/filter-dataframe-when-all-columns-are-na-in-dplyr, https://chatgpt.com/share/68019727-e014-8009-b21d-028816e09e49
 mysteryTeacher <- teacher_evals_clean |>
-  filter(if_any(.cols = course_id : sex,
-                .fns = ~.x == "NA"))
+  filter(if_any(everything(), ~ is.na(.)))
 ```
 
 **7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in ~3 complete sentences.**
@@ -230,15 +231,35 @@ Helpful functions: `distinct(___, .keep_all = TRUE)`
 
 :::
 
+There are 134 female professors and 160 male professors in this SET study. The average seniority between all teachers is 4.891 years of teaching. Out of the 294 professors, 168 have doctorates, 75 have a masters, 43 have no degree and 8 are just professors. 
+
 ```{r}
 # code chunk for Q7
-```
+teacher_evals_clean |>
+  select(teacher_id, academic_degree, seniority, sex) |>
+  distinct(teacher_id, .keep_all = TRUE) |>
+  count(sex) 
+
+teacher_evals_clean |>
+  select(teacher_id, academic_degree, seniority, sex) |>
+  distinct(teacher_id, .keep_all = TRUE) |>
+  summary()
+
+teacher_evals_clean |>
+  select(teacher_id, academic_degree, seniority, sex) |>
+  distinct(teacher_id, .keep_all = TRUE) |>
+  count(academic_degree) 
+
+``` 
 
 
 **8. Each course seems to have used a different subset of the 9 evaluation questions. How many teacher-course combinations asked all 9 questions?**
 
 ```{r}
 # code chunk for Q8
+teacher_evals_clean |>
+  select(course_id : question_no) |>
+  where(question_no == 1)
 ```
 
 
