@@ -170,12 +170,11 @@ teacher_evals_clean <- teacherData |>
   rename(sex = gender) |>
   filter(no_participants > 10) |>
   mutate(question_no = question_no - 900) |>
+  mutate(teacher_id = as.character(teacher_id)) |>
+  select(course_id : SET_score_avg, percent_failed_cur, academic_degree : sex)
   
+kable(teacher_evals_clean)
 
-str(teacher_evals_clean)
-
-
-  
 ```
 
 For the remaining questions in this section (Q5 - Q8), answer the question with at
@@ -190,11 +189,23 @@ Helpful functions: `summarize()`, `n_distinct()`
 
 :::
 
+There are 294 instructors and 921 unique courses in the cleaned dataset.
+
 ```{r}
 # code chunk for Q5
+teacherCount <- teacher_evals_clean |>
+  summarize(teacherCount = n_distinct(teacher_id))
+
+teacherCount
+
+courseCount <- teacher_evals_clean |>
+  summarize(courseCount = n_distinct(course_id))
+
+courseCount
+
 ```
 
-**6. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which couse? What variable are the missing values in? Your code output should clearly answer this question.**
+**6. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in? Your code output should clearly answer this question.**
 
 ::: callout-tip
 Helpful functions: `if_any()`
@@ -202,6 +213,9 @@ Helpful functions: `if_any()`
 
 ```{r}
 # code chunk for Q6
+mysteryTeacher <- teacher_evals_clean |>
+  filter(if_any(.cols = course_id : sex,
+                .fns = ~.x == "NA"))
 ```
 
 **7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in ~3 complete sentences.**
