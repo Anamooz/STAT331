@@ -1,6 +1,6 @@
 ---
 title: "Lab 4: Childcare Costs in California"
-author: "YOUR NAME"
+author: "Trycia Vong"
 format: 
   html:
     embed-resources: true
@@ -46,6 +46,10 @@ We also have information from the California State Controller on tax revenue for
 
 ```{r setup}
 # load libraries
+library(readr)
+library(tidyverse)
+library(janitor)
+library(ggplot2)
 ```
 
 ```{r load_data}
@@ -58,7 +62,7 @@ tax_rev <- read_csv('https://raw.githubusercontent.com/manncz/stat-331-s25/main/
 
 **1. Briefly describe the data (~ 4 sentences). What information does it contain?**
 
-
+In tax revenue data it includes the county, the year, and a column of revenue from property tax, and another column of revenue from sales and use tax. While in the counties data it has the county name, abbreviation, state the county is in, and the fips code of that county. In the childcare costs data, it consists of unemployment rate of various groups, labor force participation rate of various groups, poverty rates, median earnings on different groups, total population and its various race percentages, number of households with a certain amount of children under a certain age, the percent of certain groups in certain occupations, and aggregated weekly, full-time median price charged for Center-based Care for certain children age groups. 
 
 
 ## California Childcare Costs
@@ -67,12 +71,16 @@ tax_rev <- read_csv('https://raw.githubusercontent.com/manncz/stat-331-s25/main/
 
 **a. Sketch a game plan for completing this task. You should do all of this within one pipeline**
 
-![]()
+![](gameplanlab4.png)
 
 **b. Implement/code your game plan to create the dataset of childcare costs in California.** *Checkpoint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 638 observations.*
 
 ```{r}
 # code for Q2
+ca_childcare <- counties |>
+  filter(state_abbreviation == "CA") |>
+  inner_join(childcare_costs,
+             by = join_by(county_fips_code))
 ```
 
 
@@ -80,6 +88,9 @@ tax_rev <- read_csv('https://raw.githubusercontent.com/manncz/stat-331-s25/main/
 
 ```{r}
 # code for Q3
+ca_childcare <- ca_childcare |>
+  left_join(tax_rev,
+            by = join_by(county_name == entity_name, study_year == year))
 ```
 
 
@@ -125,7 +136,18 @@ san_diego_imperial_counties <- c("Imperial","San Diego")
 # finish this code for Q4
 
 ca_childcare <- ca_childcare |> 
-  mutate(county_name = str_remove(county_name, " County"))
+  mutate(county_name = str_remove(county_name, " County")) |>
+  mutate(census_regions = fct_collapse(.f = county_name,
+               "superior_counties" = superior_counties,
+               "north_coast_counties" = north_coast_counties,
+               "san_fran_counties" = san_fran_counties,
+               "n_san_joaquin_counties" = n_san_joaquin_counties,
+               "central_coast_counties" = central_coast_counties,
+               "s_san_joaquin_counties" = s_san_joaquin_counties,
+               "inland_counties" = inland_counties,
+               "la_county" = la_county,
+               "orange_county" = orange_county,
+               "san_diego_imperial_counties" = san_diego_imperial_counties))
 
 ```
 
@@ -148,6 +170,7 @@ This will require transforming your data! Sketch out what you want the data to l
 
 ```{r}
 # code for Q5
+delete later for commit/push
 ```
 
 
