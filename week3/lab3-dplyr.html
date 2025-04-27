@@ -3171,62 +3171,261 @@ vertical-align: -.125em;
 <p>The data came from Poland university students evaluating a professor from Winter 2020-2021.There are 22 columns and 8015 rows of data of SET (student evaluations of teaching). There is an average of 46.95 responses for each question per professor. And most students have an average grade of 3.962, which is a pretty good grade so maybe that influxes their opinion of the professor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you may want to use code to answer this question</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(teacherData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  course_id           teacher_id      question_no  no_participants  
- Length:8015        Min.   :  3432   Min.   :901   Min.   :   1.00  
- Class :character   1st Qu.: 38606   1st Qu.:903   1st Qu.:  15.00  
- Mode  :character   Median : 50752   Median :905   Median :  27.00  
-                    Mean   : 49964   Mean   :905   Mean   :  46.95  
-                    3rd Qu.: 66076   3rd Qu.:907   3rd Qu.:  50.00  
-                    Max.   :110292   Max.   :909   Max.   :1003.00  
-                                                   NA&#39;s   :34       
-   resp_share      SET_score_avg   stud_grade_avg  stud_grade_std  
- Min.   :0.00348   Min.   :1.000   Min.   :2.375   Min.   :0.0000  
- 1st Qu.:0.06061   1st Qu.:4.000   1st Qu.:3.583   1st Qu.:0.6369  
- Median :0.10000   Median :4.667   Median :4.015   Median :0.8562  
- Mean   :0.14020   Mean   :4.392   Mean   :3.962   Mean   :0.8078  
- 3rd Qu.:0.16667   3rd Qu.:5.000   3rd Qu.:4.392   3rd Qu.:1.0100  
- Max.   :1.00000   Max.   :5.000   Max.   :5.000   Max.   :1.7678  
- NA&#39;s   :34                        NA&#39;s   :41      NA&#39;s   :41      
- stud_grade_var_coef percent_failed    stud_grade_avg_cur stud_grade_std_cur
- Min.   :0.0000      Min.   :0.00000   Min.   :2.375      Min.   :0.0000    
- 1st Qu.:0.1483      1st Qu.:0.00000   1st Qu.:3.583      1st Qu.:0.5632    
- Median :0.2150      Median :0.07692   Median :4.048      Median :0.8311    
- Mean   :0.2120      Mean   :0.12490   Mean   :3.990      Mean   :0.7907    
- 3rd Qu.:0.2777      3rd Qu.:0.19048   3rd Qu.:4.450      3rd Qu.:1.0278    
- Max.   :0.5439      Max.   :0.75000   Max.   :5.000      Max.   :1.7678    
- NA&#39;s   :41          NA&#39;s   :41        NA&#39;s   :41         NA&#39;s   :41        
- stud_grade_var_coef_cur percent_failed_cur class_duration    weekday         
- Min.   :0.0000          Min.   :0.0000     Min.   :0.000   Length:8015       
- 1st Qu.:0.1325          1st Qu.:0.0000     1st Qu.:1.000   Class :character  
- Median :0.2107          Median :0.0723     Median :2.000   Mode  :character  
- Mean   :0.2073          Mean   :0.1274     Mean   :1.564                     
- 3rd Qu.:0.2795          3rd Qu.:0.2000     3rd Qu.:2.000                     
- Max.   :0.5439          Max.   :0.7500     Max.   :3.000                     
- NA&#39;s   :41              NA&#39;s   :41         NA&#39;s   :914                       
- time_of_day        SET_score_1sem  maximum_score    academic_degree   
- Length:8015        Min.   :1.220   Min.   :0.0000   Length:8015       
- Class :character   1st Qu.:4.119   1st Qu.:0.0000   Class :character  
- Mode  :character   Median :4.471   Median :0.0000   Mode  :character  
-                    Mean   :4.388   Mean   :0.4131                     
-                    3rd Qu.:4.685   3rd Qu.:1.0000                     
-                    Max.   :5.000   Max.   :1.0000                     
-                    NA&#39;s   :697                                        
-   seniority         gender         
- Min.   : 1.000   Length:8015       
- 1st Qu.: 2.000   Class :character  
- Median : 6.000   Mode  :character  
- Mean   : 5.496                     
- 3rd Qu.: 8.000                     
- Max.   :11.000                     
-                                    </code></pre>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(teacherData) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">course_id</th>
+<th style="text-align: left;">teacher_id</th>
+<th style="text-align: left;">question_no</th>
+<th style="text-align: left;">no_participants</th>
+<th style="text-align: left;">resp_share</th>
+<th style="text-align: left;">SET_score_avg</th>
+<th style="text-align: left;">stud_grade_avg</th>
+<th style="text-align: left;">stud_grade_std</th>
+<th style="text-align: left;">stud_grade_var_coef</th>
+<th style="text-align: left;">percent_failed</th>
+<th style="text-align: left;">stud_grade_avg_cur</th>
+<th style="text-align: left;">stud_grade_std_cur</th>
+<th style="text-align: left;">stud_grade_var_coef_cur</th>
+<th style="text-align: left;">percent_failed_cur</th>
+<th style="text-align: left;">class_duration</th>
+<th style="text-align: left;">weekday</th>
+<th style="text-align: left;">time_of_day</th>
+<th style="text-align: left;">SET_score_1sem</th>
+<th style="text-align: left;">maximum_score</th>
+<th style="text-align: left;">academic_degree</th>
+<th style="text-align: left;">seniority</th>
+<th style="text-align: left;">gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Length:8015</td>
+<td style="text-align: left;">Min. : 3432</td>
+<td style="text-align: left;">Min. :901</td>
+<td style="text-align: left;">Min. : 1.00</td>
+<td style="text-align: left;">Min. :0.00348</td>
+<td style="text-align: left;">Min. :1.000</td>
+<td style="text-align: left;">Min. :2.375</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Min. :0.00000</td>
+<td style="text-align: left;">Min. :2.375</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Min. :0.000</td>
+<td style="text-align: left;">Length:8015</td>
+<td style="text-align: left;">Length:8015</td>
+<td style="text-align: left;">Min. :1.220</td>
+<td style="text-align: left;">Min. :0.0000</td>
+<td style="text-align: left;">Length:8015</td>
+<td style="text-align: left;">Min. : 1.000</td>
+<td style="text-align: left;">Length:8015</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Class :character</td>
+<td style="text-align: left;">1st Qu.: 38606</td>
+<td style="text-align: left;">1st Qu.:903</td>
+<td style="text-align: left;">1st Qu.: 15.00</td>
+<td style="text-align: left;">1st Qu.:0.06061</td>
+<td style="text-align: left;">1st Qu.:4.000</td>
+<td style="text-align: left;">1st Qu.:3.583</td>
+<td style="text-align: left;">1st Qu.:0.6369</td>
+<td style="text-align: left;">1st Qu.:0.1483</td>
+<td style="text-align: left;">1st Qu.:0.00000</td>
+<td style="text-align: left;">1st Qu.:3.583</td>
+<td style="text-align: left;">1st Qu.:0.5632</td>
+<td style="text-align: left;">1st Qu.:0.1325</td>
+<td style="text-align: left;">1st Qu.:0.0000</td>
+<td style="text-align: left;">1st Qu.:1.000</td>
+<td style="text-align: left;">Class :character</td>
+<td style="text-align: left;">Class :character</td>
+<td style="text-align: left;">1st Qu.:4.119</td>
+<td style="text-align: left;">1st Qu.:0.0000</td>
+<td style="text-align: left;">Class :character</td>
+<td style="text-align: left;">1st Qu.: 2.000</td>
+<td style="text-align: left;">Class :character</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Mode :character</td>
+<td style="text-align: left;">Median : 50752</td>
+<td style="text-align: left;">Median :905</td>
+<td style="text-align: left;">Median : 27.00</td>
+<td style="text-align: left;">Median :0.10000</td>
+<td style="text-align: left;">Median :4.667</td>
+<td style="text-align: left;">Median :4.015</td>
+<td style="text-align: left;">Median :0.8562</td>
+<td style="text-align: left;">Median :0.2150</td>
+<td style="text-align: left;">Median :0.07692</td>
+<td style="text-align: left;">Median :4.048</td>
+<td style="text-align: left;">Median :0.8311</td>
+<td style="text-align: left;">Median :0.2107</td>
+<td style="text-align: left;">Median :0.0723</td>
+<td style="text-align: left;">Median :2.000</td>
+<td style="text-align: left;">Mode :character</td>
+<td style="text-align: left;">Mode :character</td>
+<td style="text-align: left;">Median :4.471</td>
+<td style="text-align: left;">Median :0.0000</td>
+<td style="text-align: left;">Mode :character</td>
+<td style="text-align: left;">Median : 6.000</td>
+<td style="text-align: left;">Mode :character</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Mean : 49964</td>
+<td style="text-align: left;">Mean :905</td>
+<td style="text-align: left;">Mean : 46.95</td>
+<td style="text-align: left;">Mean :0.14020</td>
+<td style="text-align: left;">Mean :4.392</td>
+<td style="text-align: left;">Mean :3.962</td>
+<td style="text-align: left;">Mean :0.8078</td>
+<td style="text-align: left;">Mean :0.2120</td>
+<td style="text-align: left;">Mean :0.12490</td>
+<td style="text-align: left;">Mean :3.990</td>
+<td style="text-align: left;">Mean :0.7907</td>
+<td style="text-align: left;">Mean :0.2073</td>
+<td style="text-align: left;">Mean :0.1274</td>
+<td style="text-align: left;">Mean :1.564</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Mean :4.388</td>
+<td style="text-align: left;">Mean :0.4131</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Mean : 5.496</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd Qu.: 66076</td>
+<td style="text-align: left;">3rd Qu.:907</td>
+<td style="text-align: left;">3rd Qu.: 50.00</td>
+<td style="text-align: left;">3rd Qu.:0.16667</td>
+<td style="text-align: left;">3rd Qu.:5.000</td>
+<td style="text-align: left;">3rd Qu.:4.392</td>
+<td style="text-align: left;">3rd Qu.:1.0100</td>
+<td style="text-align: left;">3rd Qu.:0.2777</td>
+<td style="text-align: left;">3rd Qu.:0.19048</td>
+<td style="text-align: left;">3rd Qu.:4.450</td>
+<td style="text-align: left;">3rd Qu.:1.0278</td>
+<td style="text-align: left;">3rd Qu.:0.2795</td>
+<td style="text-align: left;">3rd Qu.:0.2000</td>
+<td style="text-align: left;">3rd Qu.:2.000</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd Qu.:4.685</td>
+<td style="text-align: left;">3rd Qu.:1.0000</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3rd Qu.: 8.000</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Max. :110292</td>
+<td style="text-align: left;">Max. :909</td>
+<td style="text-align: left;">Max. :1003.00</td>
+<td style="text-align: left;">Max. :1.00000</td>
+<td style="text-align: left;">Max. :5.000</td>
+<td style="text-align: left;">Max. :5.000</td>
+<td style="text-align: left;">Max. :1.7678</td>
+<td style="text-align: left;">Max. :0.5439</td>
+<td style="text-align: left;">Max. :0.75000</td>
+<td style="text-align: left;">Max. :5.000</td>
+<td style="text-align: left;">Max. :1.7678</td>
+<td style="text-align: left;">Max. :0.5439</td>
+<td style="text-align: left;">Max. :0.7500</td>
+<td style="text-align: left;">Max. :3.000</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Max. :5.000</td>
+<td style="text-align: left;">Max. :1.0000</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Max. :11.000</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA’s :34</td>
+<td style="text-align: left;">NA’s :34</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :41</td>
+<td style="text-align: left;">NA’s :914</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA’s :697</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(teacherData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8015   22</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(teacherData) <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">8015</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(teacherData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(teacherData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>cols(
   course_id = col_character(),
@@ -3265,16 +3464,16 @@ vertical-align: -.125em;
 <li><strong>only keeping the columns we will use – <code>course_id</code>, <code>teacher_id</code>, <code>question_no</code>, <code>no_participants</code>, <code>resp_share</code>, <code>SET_score_avg</code>, <code>percent_failed_cur</code>, <code>academic_degree</code>, <code>seniority</code>, and <code>sex</code>.</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q4</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="ot">&lt;-</span> teacherData <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sex =</span> gender) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_participants <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">question_no =</span> question_no <span class="sc">-</span> <span class="dv">900</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">teacher_id =</span> <span class="fu">as.character</span>(teacher_id)) <span class="sc">|&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id <span class="sc">:</span> SET_score_avg, percent_failed_cur, academic_degree <span class="sc">:</span> sex)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacher_evals_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q4</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="ot">&lt;-</span> teacherData <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sex =</span> gender) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_participants <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">question_no =</span> question_no <span class="sc">-</span> <span class="dv">900</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">teacher_id =</span> <span class="fu">as.character</span>(teacher_id)) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id <span class="sc">:</span> SET_score_avg, percent_failed_cur, academic_degree <span class="sc">:</span> sex)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacher_evals_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -83267,11 +83466,11 @@ vertical-align: -.125em;
 <p><strong>5. How many unique instructors and unique courses are present in the cleaned dataset?</strong></p>
 <p>There are 294 instructors and 921 unique courses in the cleaned dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q5</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>teacherCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">teacherCount =</span> <span class="fu">n_distinct</span>(teacher_id))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacherCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q5</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>teacherCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">teacherCount =</span> <span class="fu">n_distinct</span>(teacher_id))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacherCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83286,10 +83485,10 @@ vertical-align: -.125em;
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>courseCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">courseCount =</span> <span class="fu">n_distinct</span>(course_id))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(courseCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>courseCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">courseCount =</span> <span class="fu">n_distinct</span>(course_id))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(courseCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83308,19 +83507,19 @@ vertical-align: -.125em;
 <p><strong>6. One teacher-course combination has some missing values, coded as <code>NA</code>. Which instructor has these missing values? Which course? What variable are the missing values in? Your code output should clearly answer this question.</strong></p>
 <p>The instructor with the id “56347” has some missing values. It is the “PAB3SE004PA” course and the missing variable is percent_failed_cur.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q6 https://stackoverflow.com/questions/69720079/filter-dataframe-when-all-columns-are-na-in-dplyr, https://chatgpt.com/share/68019727-e014-8009-b21d-028816e09e49</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mysteryTeacher <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">is.na</span>(.)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q6 https://stackoverflow.com/questions/69720079/filter-dataframe-when-all-columns-are-na-in-dplyr, https://chatgpt.com/share/68019727-e014-8009-b21d-028816e09e49</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mysteryTeacher <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">is.na</span>(.)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>7. What are the demographics of the instructors in this study? Investigate the variables <code>academic_degree</code>, <code>seniority</code>, and <code>sex</code> and summarize your findings in ~3 complete sentences.</strong></p>
 <p>There are 134 female professors and 160 male professors in this SET study. The average seniority between all teachers is 4.891 years of teaching. Out of the 294 professors, 168 have doctorates, 75 have a masters, 43 have no degree and 8 are just professors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q7</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) <span class="sc">|&gt;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q7</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83341,11 +83540,11 @@ vertical-align: -.125em;
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -83410,11 +83609,11 @@ vertical-align: -.125em;
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(academic_degree) <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(academic_degree) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83447,13 +83646,13 @@ vertical-align: -.125em;
 <p><strong>8. Each course seems to have used a different subset of the 9 evaluation questions. How many teacher-course combinations asked all 9 questions?</strong></p>
 <p>48 teacher-course combinations asked all 9 questions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q8, https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n_distinct</span>(question_no) <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q8, https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n_distinct</span>(question_no) <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83716,16 +83915,16 @@ vertical-align: -.125em;
 <p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvYAAADWCAYAAAC60sY/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAD3USURBVHhe7d1baBtZnj/wr/77lkgkvQlkJCbSyPRicO8yGSwzCSyRDIbF0HInjRgc6JVh3tZ2GhY/yEsH03gvLT0YeoLtzUsv2LNNwiASIgX8YrAcFtpNpDBZaIG3szbydJcmbC4OkvO49X8YnbOnjqp0cexcKt8PCOy6nWuVflV1quQxTdMEERERERG91f6fPoGIiIiIiN4+DOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAN7IiIiIiIXYGBPREREROQCDOyJiIiIiFyAgT0RERERkQswsCciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAP7N0gmk8HY2Jg+ed/GxsYQi8VQr9ebph89ehSlUskyPZPJIBQKoVqtWqa/aarVKu7fv69PltrN78TY2Bg8Hg9CoRB+9atfyXbJZDKWOj2ItA7a2NjYgfajV0mtz1KphGAw2NRPD0OpVMKZM2fa9v1MJgOPx4OjR4/i3//93186f4VCoWn/JCIi2i8G9m+ITCaD6elpffJLSSQS2N7eRq1Wk9Pq9TqeP3+OEydOYHV11bJ8uVxGLBaD3++3TH+TVKtVnD17Fj/++KM+C+hgfidKpRLW1tZQLBZRqVTwu9/9DktLS/piB5IW/R+9Pvv7+7Gzs4P+/n590QNVKpVw/vx5PHv2TJ9lUa1Wsbi4iFwuh729PXzyyScvlb9MJoPPP/9cn0xERLRvDOxfs3q9jlgshtnZWZw+fVqf/VICgQBM04RhGHLa5uYmACCZTGJlZUVeLazX66hUKujr65PLvqsMw4DH40EgENBnkctkMhlEIhG8//77+qwmhmHANE32CyIiemMxsH/N1tbWAACPHj3C4OCgPvul9Pb2oqenx3JlfnV1FceOHcPFixexu7srr+Zvbm5ia2sLQ0NDQOMq5tGjR+HxeODxeByHdlSrVYRCIeTzeTlNH9IjTl4ymQygDHMRH3VYkBjqcuXKFTlfbEtc0d3Z2cHIyEhTnlrNV9O0G4YkZDIZjIyMYGdnB4FAQA6P0tP64x//aJuWKKuedzTyd+bMGVm2VsOenPIr6vvatWsIhUJyGVG3KruhLHbtpRLzxXavXbuGM2fOoFQq2a5rNy2fz1vaV82bvv1WbWuXf6d6EfPERyxjNxRNqFaruH79OorFIv7pn/5Jn22Rz+cRiUTwhz/8AZFIpCl/Tm0rhu7odSHu0K2vr+PUqVOO/ZGIiKgbDOxfs3g8jkKhAK/Xq896aV6vF6FQCOVyGWgEnSsrK0gkEggEAnj27BmKxSKgXaXO5/M4f/487t69C9M0UavVUKlUmoJbAPD7/YjFYshms3JauVzG48eP5Z0C9aQhk8mgUqmgVqvJbQ8MDGBqakoGYOvr6/D5fHJ+OBzG9PQ0/H4/NjY2EAwGkcvlmobH2M0Xgbaa5szMDM6fP28bTKVSKeRyOQSDQRiGgVQqpS8CAPjJT37SlFa1WsUHH3yA4eFhmKYJ0zQxPj6Os2fPygD+2bNn+I//+A9Zp/qwp07z+8UXX2BjYwOmaSKXy2F2drapPHYndqK9I5GIsuSfiOB6fHxc3un54osv8P333+uLOspkMpicnJRXtw3DwOLiIjKZDOr1Oi5duiS3b5omYrFYR23bab0sLy8jkUjItLe3t7GwsGDZluD3+/H73/++o6E08XgcxWIRp0+fRrFYbMofbNq2WCxicXFR1kWxWMTCwgJKpRJSqRTS6TSi0SgePXrUUR6IiIjaYWDvcolEApVKBfV6XV6dj0QiTQF5NpuV4+uz2SxmZmZksOH1ejE3N4e1tbWm4BGNNAqFgrzyWqlU8Otf/1oGlKurq+jp6UFvby9SqZTlRMbr9WJ4eNiyvWAwiGQyaZkvytAtcVIxNzcn05yYmMDAwEDTMwYvq1gsIhwOY2JiQk6bmJhAOBzG8vKynDY8POx4ItdpfsfHx+VJQSQSwcmTJy1DrqDUnTrkSm1n3fLysiX/fr8f8/Pz+mKOxInj/Py83L7YxuLiIh4+fIjt7W3LOktLS7ZBsq7TeolGo/LOl+jj4sT2VVDbVk/3VT0zQERE7y4G9i4XiUSwu7uLzc1NebXW5/MBStAvgvFEIiHH2k9PT1uGEEQiETx58kTb+p9EIhG89957MAwDhmHg+PHjOHfunAwoy+VyUzCrDtfQHxoOh8Myjy/Lbry8CHj1wOtllctlebdBlM3n82F9fd2yXKvnGDrNb6ttqIaGhrC1tYXNzU1Uq1UUCgUkEgl9MaCR/1AoZGmnSCSCv/iLv7As56RWq2F7exsjIyOWvjMyMgIAOHXqFMbHx2XfajUUSddpvej5f9XUdhEnp4FAwDIMh4iI6LAwsHc5n8+H48ePwzAMZLNZS4AdCASwtbWFYrGI3d1dBAIBGZyl02k5XEJ89vb2bK82ijRWV1exurqKc+fOyaum//Vf/4UHDx7IsftizPHo6CiKxSJM00Q6nda2ePgOOqhHY5vRaFQOFVE/TkN6OrXf/Pb392NwcBCrq6sth+Ggi5MFJ4Zh4PHjx8jlck3lF8OOUqmUHCaDRh/sJsDX7bdeXgW/349KpSL7uDihYYBPRESHhYG9y4mrml999RWeP38uA2woY7Cz2SyOHz+O3t5e+Hw+hMPhrgImkcb169exsrKCoaEh+P1+hEIh/OY3v8GzZ88QCATkUI10Om05SegmrW7ZvRlI3JV42UBW19fX1/R60W4dRn4TiQRWVlbw1VdfOQ7DQSP/YkiVYBgGnj59allOJYJ5NPJ+8uTJjtpTBL2inOKkw8lh1MurJE5o0um0ZWgUERHRQWJg/w7o6+vD7du3sbu7i97eXjnd23i4dnl5WQ5h8Hq9mJqawvLycss33eiGhobw/fffY3t7Ww6X6Ovrw/LyclMwqQZ+mUzGMv68nXYnHvp8cfKiPpy7sLCAe/fuWU5y9kNPSwy9UIcWlRpvF3J6C43uMPIbiUSwvb2N27dvOw7DAYDBwUH5oDIagfPU1JQcgiXKOzc3J/N29epVvHjxAmgE6+Pj400P8o41fijt4cOHCIVClivW6l0EvT5Vh1Evh03fZ8SJrbhrdhAngkRERCoG9m+4fD7fMqDuRCQSQTAYtB1/LAI9NeCLx+PI5XKWsdKLi4vY2NhwvNrb29uLgYEBSxA/NDSEI0eOyG17vV5cv34dhUJBbndlZQVff/017t27J9+x34q4OzA9PW37KkN9Phq/7hkKheTY99nZWdy9e9d2WFE39LR8Ph82NjYs5YtEIrhx4wbi8bi+ui2v13vg+RUPkQaDQcdhOGikfefOHVQqFXgazwccP34cJ06ckPOvX7+O7e1tmbdz584hGAzKbaRSKczMzCASicg6qFQquHPnDt5//33cvHkTs7Ozct7o6Chu3rwJv9/fVJ/ihEGkfdD1cthSqRRisZgcY+/z+RAKheSwLNEW4k1UREREL8tjmqapTyQidxGvKu3kDTSqUqmEixcv4tatW29sAE1ERER/wiv2RC5XrVbx4MEDfPrpp/osIiIichEG9kQulslkEAgEcOnSJV5xJyIicjkOxSEiIiIicgFesSciIiIicgEG9kRERERELsDAnoiIiIjIBRjYExERERG5AAP716xarSIUCskf7HnZH6PSjY2NyXeYQ0tPne429XodhUJBnyzp8/V6osNz//592cdLpRKCwaDll2qpM2rdif36IH/oSm2nw3YY+99h1IlbVKtV3L9/H+A+eCDa1aH+ffMuaFcndHgY2L9G1WoVZ8+exfj4OEzThGmaGB8fx9mzZw/tC3V5eRnhcBi1Wq3rHyt6W9TrdXz44Yf49ttv9VlAB/Pp8OTzeVy8eFH+39/fj52dHb6K8w2jt9PbyO/34x/+4R8QCAT0We808b3z448/6rPoEPD7hl41BvavUbFYBAAkk0k5Tfwt5h20crmMUCgEr9erzyIicpXvvvtOn0RE5GoM7F+jeDyOSqUCv9+vzzpw9XodsVgMy8vLWF5extGjR5tukWUyGcRiMdTrdUC5lZ3JZOQy+XxeDhcS22w3jEgsp29Hz4N6O35sbExu1+PxWJYVt/iuXbuGo0ePymXy+by8OrK+vo7p6WlLeaBcPbGb//z5c0t59KEB+Xzekie1PHacymBXH9DqVl/frq4uX74sh1Xl83mUSiVLfdiVQd1mLBbDhQsXLMt0U8ZMJoMLFy7IOhPLOpU7n89jZGQEOzs7CAQCMs/6cJJr165ZhqepedCHrok6cBpuofdRj00/1css6qNUKuHMmTO4fPkyPI36qtfrTdvUt5fJZCzba5V/fV2dU112S89zq7Tt2gmN+lD7l9639HrUy67nQS9Lu/2vVfp2fVFsW9wN0vOnb1/Xqh31sqh1qfZpQe/nZ86cwZUrVyzrtsufPn8//arauFq/s7ODkZERSxq3bt2S6+ttgw6OR+IjltGPvYJ+nBN1qeZFr8NWaes6yUurukSbvmY3/9atW5b5Qqvvm27KhDbH7jGb7wO0KaeoI5U6LdOIBy5cuGBJ165NW3HqV3bpizS7TYM0Jr1RcrmceeTIEbNYLOqz9iWZTJrJZNLxf1WxWDRPnz4t0y4Wi+aRI0ds1zcMwwwGg2Y6nZbz0um0GQwGTcMw5DR1XjQaNWu1mvwfgJnL5UzTNOX2crlc07K1Ws2MRqNymsiXvj2RtlhezZvKbn4ymbTNj1hGL5s+X9euDPr2TKVuxbJqvev9IplMWv5X609dRy2TnqZoA5GOPr+TMqrbF9NalTuXy1nSUPucSE+dr5Zbrxfxv54Hld7fRRpiml5Hapnt+r++vtlIQ+S5Vfmc+p26LVW7urSru/3Wg04vh97/9LbQjx1mI/9626nlUftbss3+1y59u76o0vPXrr7UvJvKsTCXy9nWndoH9LTE+npbqXWhr6Pnr9W+2W2/0rctyubUNnpdmzbt0a79VHr6dvUh+v4f//jHtmnr2uWlVV2aNtvXy68vL/53ypPePk77gtP6pk2eRX8XeUpq3wdiGbs+LPJh10fUaXoaej20065f6ccYvZ5o/3jF/g1SKpUwOjqKmZmZ1zLmuLe3Fz09PVhdXQUArK6u4te//jUqlQqq1Sqq1SoKhQISiQSKxSLC4TAmJibk+hMTEwiHw1heXla2+idDQ0PY2trC5uYm6vU6vvnmG3z22WfIZrOAMvQoEokglUqhUCjI4UJerxfDw8OW7QHA1NSUXGZoaAimacIwDH2xjkWjUQwODgKN8bmxWAzlchn1eh0rKyuYn5+Xd1f8fj/m5+exuLhoe2WsXRn0IVdq3W5ubmJ3dxfpdFouH4/HkUgkcPXqVTltYGAAvb29QCM/lUoF8Xhczo9EIggGg0Bj+4uLi5YyTExMIBqNAo0rS92WEQCCwSAikYj8v125OzE+Pi7zEIlEcPLkSRiGgbW1NWxvb8t68Xq9mJubw5EjR7Qt/J+lpSXLsySiXYVsNotkMinrTdRjKpWSyyQSCfm3aC+1bcTfxWIR5XJZTof2DEGtVsP29rZlvp4/1UHUpaCno9dDO9ls1nJcEnW/traGUqlk+6zE0NAQTpw4AQDY3NzE1tYW5ubmZHlSqZTljqXT/ocO0odNX1QZhoEnT57I/+32F0HsC2p6/f392NvbQzweb9sHOjU8PCzrolX+2u2bDx8+7KpfOXE6nnZ6PGrVfioxTz32/+IXv8Dx48fl98PKygqGh4fxww8/dJS2zikv7eqyWq227WviOTXx3SfW75TdvjAxMYGBgQH53atqd+wW1O8Dpz48MzODlZWVjq+IB4PBpuOtus+1c+LEiaZyihhB7KtinxH1MjQ0ZNkGdY+B/RuiVCrh/PnzSCQSlqDiVRKBgzgYl8tlnDt3DmjsfIZh4L333kMkEkG5XMb6+jp8Pp+8zebz+bC+vq5t9U/ESYNhGKjVatjd3cUvf/lLPHjwANVqFeVyGbFYTB64oN1GnJ6etmzvxIkTB/5QXMjh2QMRkI2MjFhua46MjOiLNnEqg92XGxqBrGEYePDgAQKBgCU9/YTJLr/itrbH40EgEMDOzg7QCBxM07TUmdfrRSgUAl6ijOFwGD6fT5/sWO5O9PX16ZOARn/U0wsEAjh58qRlOTvqsApRj/V6HZVKxTE92PQzuzyogYM4YRNtp9769vv9GB8fx/T0NDwthkvoXqYudXb10I6oJ5Fv8YlEIpZgFNqQEHW+YRjwNPqkE7v+jC7S19tFNTg4iIGBAUQiEXhshlaoxL7g1C/a9YFOqdtvlb92++apU6f21a9Uej9XvczxyEkikUClUkG9XpffM8eOHcPq6qr8fhgaGuo4bZ1TXtrV5d7eXtu+ZvecWiAQkCex7djtC/p3r6rdsVtQ8+TUh4eGhrC7u4tarWaZ7kTv56IdOr2A9ud//ue2+S6Xy03fgaurq+jp6ZEnJ7R/DOzfAGpQ3+1VloPW19eHQqGA+/fvo1KpYHBwUB5wVldX8fOf/xx+vx/lchnRaBS1Wk2+0Ud87E5MxA6dzWZRLBYRCoUwODiIn/3sZ9jc3MTKyoq8MiqCj9HRURSLRZimabli86oZhoHHjx8jl8s1ldXpGYlOypBIJFAoFORVInGlulwuIxgMygO6+nHqHyKg8vl8CIVCMBtX28QV+3b2U0Y7nZT7VRLjUhcXF2V9qg+rHwQReEK50irKLQIEEeCnUinZNmh8UToFYgdZly9TDyJISKfTTX1jb28P/f39csxxIBCQb/kqFosdBzutdJJ+O16vF4VCAaZpIpfLYXl5GZ42AX431D6wH63y18m+2U2/6tZ+jkftBAIBbG1toVgs4ptvvsHQ0BASiQTK5TKKxSKOHz+O3t7eA0+7XV0ePXr0pfvaftkF9QfNMAw8e/ZMn/zafPrpp3jw4AG+//57eZfG7oSMusPA/jUTQf3MzMy+DlQHTdwe+81vfoNQKAS/34+hoSGsrKzg+vXr8gpAX18ftre3Oz7zhxLIzs3NIZFIwOv14ty5c/jyyy+xtbWFQCAgbyGm02nLgfRVHPScBBpXhTvNQ6dlEHW9sLCAtbU1eQuyr68Pjx8/7viqCJQr/oZhyH4kvsTgcKVFDUa6LaOdTsu9X3Z9Ti2jTgxvyuVyMgBSy6xePeqUXR6cro6JYCudTjfd/hYnAKI99CEcB1mX7eqhHZ/Ph3A43DLt1dVVDAwMoFaryRN7QxleEggEYO5zqFwn6XcjHo/DbATQ4sRa1S69bvqAoNZFO3r+/uzP/qzjfbNdv9qP/RyP2hF3cL/88kv5fyQSQaVSwdzcnLz6fNBptzvOtWt7NOqj0rjbIHTTvnb7Qqu7h+2O3XacylG2udsk2G1T7+eGzd2DVp4+fWqbb1HO3t5eHD9+HEtLSxyGc4AY2L9G1WoVH3/8MWZmZmyvcr8O4vbY8vKy3PkCgQC2t7fx/fffyx1PXO1ThwaIq3ZObygRgey9e/fkgaGvrw+3b99uugWnHpAymUzbW6+qdgFbu/k6MYRidnbWMrZwbGys5RP87cogtvvP//zPlvKL2/JTU1Ny2+KKvP72BpX6BSj61osXLwAlrcnJSRnILCwsyKFT+y2jnVbltvtS69Tg4CDC4bDsc/V6HVNTU7KMTtT8TExMWIaLJRIJZLPZpjI7XckVfVjt9+LvSCSCTCZjuVIqAvTh4WHUarWmNlSHYNlpVZfdalUPOrWdvF4vpqamsLy8bNm39bKqQYB4XkgQgZw6Lrpk8/YYO52m30re5i1c2Wy2afgflGER6rMldeVNVu36gAjERFnr9Trm5ubksnZa5e/MmTMt982HDx921a+cgj4n+z0etSLq+Pbt2zh27Bi8Xq8MNtfX1+Xd24NOu91xDo1nDVr1tWQyie3tbSwsLACN/ExOTspldfr3jdgX1DItLCzg3r17toFtu2O3HVG/ajlLpRJmZ2flVfG+vj7LsW9tba1pmzs7O03H28HBwY7vXDx58qSpnNvb2zJ+EPnUvwPpJelP09KrI546t/uoT+irT453S3/yXf/fjv5WALOxnvp0u6m8DUDNt9NbJgR9O/obBtRpYpvRaNT8+uuvZZ70N0iYNm+VyDXeduJUd/p8u3rRp+ntpdeHql0ZBP1NBYJ4Q4BdnzBt8mba5O/rr79ueotBsvHGCJGnjz76aN9lTGtvbTE7KLdarnTjzTP620LUPqRP07c/OTnZtI5K1K9YPplMWt7MYCp9QV1GrKv3M9OmbfQ+ptaxuj3TJj96f1DpZdXrsl3dqfR07epBpbeTaVNP+rpquY803iCj7tt6vallt+vP+rRW6dv1RV03fdu0WV7d//Sy6HWh1veRI0fMf/3Xf23bVnp6ev5azdfbt1W/MpVtRaNR8+7du039XO/7enn1+tDbymmaSuRZrQe7PtkubZ1duvq0VnVptulrps2++dlnnzXVoUr/vjFt9hendQV1+ah27NbLJ+jl0OtN3abYhtiO2Kc++ugjyzKdEn3os88+c6xHsZzddyDtn8c0TVMP9ono3TA2Noa+vr435o5Rt6rVKoaHh/HVV191fBWJiOhtd9jH7kwmg5WVFdy5c+dQx72XSiVcvHgRt27d4jH8gHAoDtE7wO72dT6fRzabtb39+yayG64wPT0tH7QjInIbNxy7W1ldXe1qeA+1xyv2RO+IUuNBbTEm/ciRI7h79+5bdUDNZDKWsc3RaPTQrygREb1Or+PY3eqKfb7x69St5HI529+JEKqNX0EGgI2NjaZnXWj/GNgTEREREbkAh+IQEREREbkAA3siIiIiIhdgYE9ERERE5AIM7ImIiIiIXICBPRERERGRCzCwd7l6vY5CoQAo78NVfyr7INy/f7+jn3U/CGNjYxgbG9MnH6pMJoNYLCZ/FltXKpUQDAYt71c/bO3qQW2Tdvlv57D6zdukXX2/bB13611sk3Zt8DIO+jj5qvvDqyLqxuPxyI/eJplMxjJf/+TzeYyNjTVNVz9urDuiV4WBvYvV63V8+OGH+Pbbb/VZByafz+PixYv6ZFdJpVIoFApN7/J9Ux10m/j9flQqlZbvJHa7paUlLC0t6ZPpFTqsNjiM4+TbdszoRKlUwvvvv4/5+XmYpgnTNFGr1VCpVJoC8Wg0ilqtJpdTP/F4HEtLS/L/YrGI06dPo1gsymluqzuiV4mBPREREbW0urqKgYEBDA4Oymlerxdzc3PY2trC5uamZXkiej0Y2LuUuAq1vr6O6elpxGIx7O3tAQC+/fZbHD161HJrVJXP5y23RdWfslaJX5/b2dlBIBCQ2ymVSpbt67dq9e3raei3e0OhkGWoz/PnzxGLxTrevrrtTCaDCxcuyPWdyqbSb6vr5bt165a+ioW+vJ5nMcRAvT2tXwHT5z1//lzOUzm1CQB88sknjtuv1+uWOlXrXB+aMDY2hsuXL8s20vsPbLZ39OhRy1AlvU7U+tDrW59WKpVw5swZXL582VIWfQiA3rZqHer5aUcfBqKmFQqF8MMPP1iW1+l9Us2fqN9r165Z+n2rfeJf/uVflK0305dX27OT+g0Gg7hy5UrT+modivoQaV25ckW2qahftZ7UNPX+oefRro+JNrBbV3xEX9SX0Y8hwmEdJ/X6tOuvqm7rHB2UUd/H9PVFferHFj1vqu3tbdRqNcu0/v5+7OzsHOqvoDrR20AtH2yGBalt1Kr+nNqs1TqdaNUm+Xy+aXsiPZFv/bhz+fLltm1G7yCTXKtWq5nRaNRMp9OmaZqmYRhmMBg0g8GgaRiGaZqmmcvlzCNHjpjFYtE0TdNMp9OW+WIdsQ1dLpdruT2Rh2QyaZqmaRaLRfP06dNyvtlIU6wj0hPLm6ZpJpNJMxqNmrVazUwmkyYAM5fLmaZN/trlP51OW9bvRDqdlunr2xP/q2VWiflqerlczpKHbsskyqDWkUpvE7G82J7eJnp6Yh2xDb0MyWTSsbymsn1RZ6a2Pb38epur9S2o04rFonnkyBFL+fUyq/1ML69YvlUZdMlkUq6vryvKo+dZ6LTPq/lX09DzL/536sf6fm9q+e+0fsX/dumJZXK5nG3+RZ/W9xPxv5ofdb6YZtfH9HVUSeUYoadl2uxDKr2+7Mqjt7m+PT1Nu/p0yrup1Ge3de5URjFf7R/6fifaSN8P1W2qxHwAlrbV2fWvVuz2j07o6+llTiv7mFherz+1TZLJpKw/uzazqx+9H7Si58/U2sRu+2oZ9T4o1u2mrundwCv276Dx8XH4/X4AQCQSwcmTJ2EYBur1OlZWVjA/Py/n+/1+zM/PY3FxsaMrE9lsFjMzM/LqjbhVu7a2hlKpZHt1Z2hoCCdOnAAAFItFAEA6nZbzl5aWLGMuo9GovB3s9/sRi8VQLpc7zn8wGEQkEpHb78by8jLC4TAmJiYAZftO7ManRyIRBINBy3JOZapWq1hcXLSUaWJiAtFo1LJ+O8FgEMlkEmi0yfDwMCqVCur1OorFoqVMaKQRDoexvLysbOX/DAwMoLe3V58MANjc3MTW1hbm5uZkm6VSKVQqFfj9fmSzWSSTSVknog4LhUJHfUxIJBLy73K5bJmn9rPNzU3s7u5a+lQ8HkcikcDVq1ct67VTr9cxNzdn6ePxeFzWrZ12fV5w2i/X1tawvb0t8y/2qSNHjljWF2q1Gra3ty3T9jM+fWpqCl6vV/YXtY8GAgGcPHnSsrya/0QiYelzPp8P4XBYLqvnR/R5Vas+pspkMigUCrh+/Tq8Xu+++rMdp/bo9DijU/urk07rvF0ZX/a4Y0dsU/TD6elpefVYv5uxvr4On89nuTKtXvk+CIZh4MmTJ/J/tcyijdT9tL+/H3t7e4jH47bfM+JvMQ9am7Wr83batYnf78f4+DhWVlZkHa2urqKnpwc//elPuz7u0LuLgf07qK+vT58EKAHByMiI5WA8MjKiL2qrXq+jUqlYDvgejweRSMRyAIY2VECdXy6XEQ6H4fP5LMurQqGQ7YNVnea/3fZbKZfLTekHAoGmIE2n3sINBALY2dmxzNe3KRiGAdM0EQgE5DSv14tQKGRZrp1WZS6Xy01fxD6fD+vr6/qiklN+0cizKKdO9BG9D0YiEbz33nswDMMy3cmJEycs2xdfcIFAAB7tlrthGHjw4IGcJz6dfBnrRB/T86//b8epzwtO27DbJ+wCa0EECGI/1G/vd0Kv30445b8VdWiB3h6t+piQz+cxOzuLmzdvyiB7P/3ZjlN5Oj3OqDqpz06WETot436PO62kUin5kKthGAgGgxgdHbUMbXN6ePYgH4odHBzEwMAAIpEIPNowHKf9VLDbp/QTG709Oq3zdlq1ydDQkHxeQZycDA8P43//939ty6P/TwQG9qQyDAOPHz9GLpdrOiCLq62tiINpOp1uWn9vbw/9/f1yjGEgEMD4+DjMxlsR2gXGnXjZ/B8GEcz5fD6EQiGYypfhm6JcLjt+EadSKX3xQ2EYBp4+fapP7pi4GmaaJtLptAxqM5kMyuUygsGgPElSP91exd6Pw+zzTkTwJU6UAoHAvgL8wyLGdS8uLsp26fbqY6lUwujoKG7cuGG5G3LY/flNOM60K+OrOu74/X5sbGzg5MmTWF1d1WcfKq/Xi0KhANM0kcvlsLy83BTgd0NcdHDSrs7b6aRNent70dPTg9XVVXmnsdv9goiBPUniKqDTrdh2fI3b7a3WF29WqNVq8mCo3lLt6+uzfUCrEy+b/0709fXJISyCmn+duK1rGIYMIkVg0AlxlVkEaOjgC6hbL1PndgKBgPzS0om7DXobGS2u8sNmqE0rIqhNp9NYWVlBT08PHj9+bJufbjn1cf1/Vbs+345d+3Tah8QJjyi7OsxA1Sr/B61araJQKCCXy8lAuNs+Xa1W8fHHH2NmZqbpNax29XWQXsVxpp12ZXzZ445OBKXqnTBB7BOvUzwelwF+oVDA3t6e7X4q2NVfu6v8dut0o5M2EUOwVlZW8I//+I/4+c9/Dr/fv6/jDr27GNi7mFMQ5UTcwp+dnbXcVh0bG3McG6kGcV6vF1NTU1heXraMucxkMparherBUVx1E8TYd/W2vN3bAuzsJ//dSiaT2N7exsLCAtD4wpucnNQXs1CDShGQvHjxQl/MlijT5OSkLP/CwkLL27+tAms74orQ9PS0nCauMutjZzshrjqp49fFWz9KpRISiYSlj4g6jMVi8Pv96Ovrw/r6OtbW1uS62WxWbsuO3sfU29jDw8MYGBjA1NSU7AOtApVWRB9X+1g+n28aRqJr1efbGRwcRDgclu1Tr9cxNTXl2IfsyiaCikgksq/6PQzqcWliYqJln1bV63VcunSpabyz0G1/fhXHyYPWSRlf5rijU4d36XUongF51VeW8/l809utstksYrEY3n//fQwPD1ueeRBDYDKZjPyeUetP/O30/FUndd5OJ20ivmNu374tx/jv97hD7yYG9i4ngqhQKIRHjx7ps5ukUinMzMzIcYsejweVSgV37tyxHRspgrhIJIJMJoN4PI5cLmcZf7q4uIiNjQ34/X6kUinEYjF5Jfr8+fO4ceOGvJUrbu0uLi7K9ScnJ+X67XSb/27p+QsEAvjbv/1bx2EV8Xjckp9AIIAvvvgC0Wi042AqlUphfHxc1tnKygo++ugjfTFJb5N2RJkKhYKss0gkghs3bjRdDe2E1+vFnTt3UKlU5PbOnz+PW7duob+/Xz68Njo6KuskFovJq1jxeBzpdFr2oampKfz93/+9noyF3q/E7e5UKiXzg8bVRZHm+Ph4R7fQdfF4HDdu3JBtOjk52fLkTs+b3ufb0evT5/Phr/7qrxyHVfj9fty8eROzs7Oy/kdHR+U49P3U70Gyyx8aDy928gD12toa1tfXm8Y7expDr/bTnw/7OHnQ2pXxII47ulQqZdlvxWdubg7fffed5fhs1zZqGx0EvYyiDcRFF/246fP5MDw8jFQqBb/fj++++85yjCoUCi2/Z9rVeTt6fp3axN8Y66+/5EFfv91xh95dHtM0TX0iEREREb25xDNEr+JZIXp78Io9ERER0RtKDCNSHwwulUqYnZ3t6DWq9G5hYE/vLPW1Y06fVzVmll4PMUZWb3f1c1BDB4ioM2/bfnnY+fV6vbh+/fq+hwHRu4VDcYiIiIiIXIBX7ImIiIiIXICBPRERERGRCzCwJyIiIiJyAQb2REREREQuwMD+DTA2NiafdD/It7Co27X7xGIxPHz4EKFQqONfzqPOjY2NydeTZTKZA23bg6T+Kux+FQqF11q2arWK+/fv65Oler2OQqEAKL/MepB9/iDaVy+D/j8REVE7DOxfs7GxMVQqFdRqNZimiVAoZPsz6fuxtLQE0zRhmiaKxSJOnz6NYrEopxUKBRw9elRfjQ5BKpVCoVB4Jb9K2a3+/n7s7Oygv79fn9WRTCaDzz//XJ/8ylSrVZw9exY//vijPgtoBPUffvghvv32W33WG0Mvg/4/ERFRJxjYv0bVahUPHjzA3NycDPg+/fRTPHjwoO3PqhMRERERqRjYv0Z+vx+///3vm66UPn36FIZhWKYdtm+//dbyAxv6MAV1WM/Ro0ctwzbEkJNOhhTl83mEQiF54uL0i3rq0JBWaevU4S920/QfpdK3p89X82onn89bhjfpaQv6UA0xHMQpHX273fy4iUjrwoULlnzpaYo2VutbLHPt2jXLsk7pZzIZTE9PY319HadOnZJ12W3+M5mMpS4uX75sqS+ndhFXtnd2djAyMtJU/+Jq/fr6OqanpxGLxbC3twd00Oe7LQMAfPLJJ3J5fR/Qf8RG5FUvw69+9SvbMjnVgdhGKBTClStXZBqib6t1q+eJiIjchYH9G6Rer2NqagqDg4NNwf5h++1vf4uHDx/CNE3kcjmMjo6iVCrJYAKAHMJz48YNnD9/3hIQLy8vI5FIwDRNGIaB7e1tLCwsKCn8SSQSAQAUi0UAQK1Ww/b2NiqVigw4VldX0dPTg5/+9Kcdpd2NiYkJhEIhub2ZmRlMTU2hXq+jWq3igw8+wPDwsJw/Pj6Os2fP2gb3pVIJExMTcniTYRgoFApNAaJOBHKxWEymE4vFcOnSJdTrdWQyGUxOTsIwDLndxcXFjgJLYX19HefOnYPZGIaVzWZx9uxZbGxswDRNpNNpTE5O2pYLAL744gu5bC6Xw+zsrG2dp1IppNNpRKNRPHr0CP39/chkMhgdHZX1UiwWMTs765j/fD6P2dlZufz8/Dzm5+fl/FbtAgAbGxsIBoPI5XJYWlpStvynX2y8c+cOotEo0um0ZfiZU59H40Sj2zZQ67xWqwGN/oZGGcUvRap9ZWxsDH6/31KG3/3ud01lEnWg9t1YLNbUN9UyJRIJub+JNJ32SyIicgcG9m+IsbEx+Hw+3Lt3D59++qk++9CNj4/D7/cDjeD75MmTMAwDm5ub2N3dRTqdlsvG43EkEglcvXpVTotGoxgcHAQadyJisRjK5bKcL4h52WwWaAT4v/jFL3D8+HFsbm6iXq9jZWUFw8PD+OGHHzpKu1P1eh2VSsUyTR37XiwWEQ6HLc84TExMIBwOY3l52bIeABiGgSdPnsj//X4/KpVK25/4Fic1armWlpbkw50rKyuYn5+X7eH3+zE/P4/FxUXHQFwXDAaRTCYBAL29vRgYGLC0cV9fn7aGlVN/aEe038zMjDw57e/vx8zMDFZWVpquFtfrdczNzVmWj8fjMu9o1Fc37dIppzKKMnTbBtFoVObR6/Vibm4Oa2trKJVKyGazSCaTsm+I7RUKBcftqez6jPhbzINWpkQiYekHPp8P4XBYLktERO7DwP4NIR50vXv3Ls6fP9/2qu9Bcwr0DMPAgwcPEAgELMMS9IAqFAp1/GBoIpGQV+jL5TLOnTuHY8eOYXV1FbVaDbu7uxgaGuo47U55vV5MTU1heXnZMlRBKJfLWF9fh8/nk2n5fD6sr69btiMMDg5iYGAAkUjEMrSinXK5jHA4DJ/Pp8+SdzBGRkYsZR4ZGdEXbclp+51y6g/tiPzr6w8NDWF3d1deyRacllf/77ZdOqWnKey3DfR9QPTbra0tVCqVpvQikQjee++9jk6Y7PqM3Qm0ngYREb1bGNi/Yfr7+5FIJOQV7detXC4jGAzKIQnqRx/20KlAIICtrS0Ui0V88803GBoaQiKRQLlcRrFYxPHjx9Hb23soacfjcTlUQgTlIsAvl8uIRqPyDUXqJ5VK6ZuC1+tFoVCA2RjKIU4YOg3w7RiGgcePHyOXyzXloVKpyKuxbxvDMPDs2TN9cke6bZeX9arawDAMPH36VJ/cMbs7UERE9G5jYP8aqQ8tvqn6+vrw+PHjjq4qdqq3txc9PT348ssv5f+RSASVSgVzc3PyyudBpO0U/IigXAT4q6ur6Ovrw/b2dtNV5U6IE4ZcLtd2eEWrdAKBAE6ePGk7jOltIIZ76Pm3u+KMNssLrerrMOy3DdTnRNAI3E3TRE9PD0KhUNP2DMOAx+NBIBCwTLdjVwdOdzuIiOjdxcD+NRIBrnh4E42H7LLZ7GsZZ29HDDdR8yjewNHqQcJWvF4vhoeHcfv2bRw7dgxer1cGfOvr60gkEsA+0+7r60M2m5UnS2tra3LIRt3mDTybm5vY2trC0NCQHIs8PT0t54s3mdgNjcrn803DebLZLGKxWMuruuKBRnVIkXhbEBrjpPWHVcfGxt7YN5qoQadoWzX/pVIJs7OzGB4ebhquJYZHqcvn83lL3bRrF6eTA8Hr9doG1k78fv++2mB9fV0+mFrXHoRPJBJYXl6W/aharWJyclL2Fb0M+v+iz6h1IP4W84iIiBjYv0bijR1ofJF7PB6Mjo7i7t278kFCEfC1ugJ8mOzyGAgEMD4+/lLDIIaGhnDkyBEZxIuAMBgMykBlP2mnUin5NhCPxyMfWkRje9evX0ehUJDjpiORCBYWFtDf3w9/4+0k+vwbN27YPhAbj8cxMzMj0/J4PKhUKm3fOiLSWVxclOtNTk5iY2MDfr8fqVTKdrt37txpCozfBKK9AoEA8vk8UqkUbty4IfMfiUQwMzPj2GZ6PU5OTmJyclLOb9cuou+I11naBd4isA6FQnj06JE+u8l+2iAajeKbb76Bp/EMQCgUkkPG4vE4isUiRkdH4Wn041gsJufrZQBg+d/n8+G7775DpVKR+SkUCrLPEBERAYDHNE1Tn0hE9DplMhmUy+V9P0tBRET0LuIVeyJ6beyGR4mhO+JuDhEREXWGgT3RW0IEwWIoht3HaSjKm8ppeJTT8CciIiJyxqE4REREREQuwCv2REREREQuwMCeiIiIiMgFGNgTEREREbkAA3siIiIiIhdgYP8GEb+qavcrp/sxNjbW9NYU/Q0qDx8+PNA0O3X//v1D+dGtg65DXalUQjAYtPwiaTuFQkG+qWZsbMzyase30ZtShkwmA4/H0/Trv0TdOKxjERHR68DA/g0yPT2NnZ0dffK+LS0twTRNmKaJYrGI06dPo1gsymmFQgFHjx7VVzt0+XweFy9e1Ce7UiaTweeff65PppdUrVaxuLiIXC6Hvb09+UvNRN14l45FRPRuYGD/hsjn81hbW8ORI0f0WUSkMQwDpmkiEAjos4iIiN5ZDOzfAKVSCRMTE1hYWMDJkyf12a/Et99+i6NHj8phOvpQFnVYjz70QQzNUJdx+qGkfD6PkZER7OzsIBAIyHRKpZIl/XZDPcSQG7F8KBSy3E5vV558Pm8ZlpTJZFrOd8qPyLeePhpX66enp7G+vo5Tp07JOnv+/Lnlh6b0bXdTF5lMBrFYDFeuXLGtC7uhQ+o0UY9XrlyRaYr2FUNdPDbt2a4Mev2p9ZvJZHDhwgW5vl73glM95PN5RCIR/OEPf0AkEmlKW2jXRzrp0yp12tjYGC5fviy3n8/n26bnVB5BrW+nehE/UqbOy+fzLfOv/7CZni+dvry6bX2evr12/dGO3lf0enFqJ7thd/o0UQ/qNkRfdjoWERG9zRjYv2b1eh1TU1OYmJhAJBLRZ78yv/3tb/Hw4UOYpolcLofR0VGUSiX5RQ5ADuG5ceMGzp8/bwkklpeXkUgkYJomDMPA9vY2FhYWlBT+JB6PI5fLIRgMwjAMxONxGajduHFDrl8oFJq+4IVqtYqzZ88iFovJPMViMVy6dAl7e3tAi/KgEXxMTk7Kq76GYWBxcVEGS+ILP5fLWfKjB1qlUgnnz5/HzMwMKpUK/H6/ZX4qlUI6nUY0GsWjR4/kcJHbt29jamrKdtv5fB7nz5/H3bt3YZomarUaKpWKY10AwPr6Onw+n1w+HA5jenpaX6wltb4SiYTsi07t2aoM7epXXz+VSsnpQqs+EY/HLUPLlpaW9NVb9pFHjx4hFouhUqmgVqvBNE3MzMw09el2/u3f/g03b96EaZoYHBzEpUuXMD4+bklPtEO7ds3n81hcXJR1ViwWsbCw0JQfr9eL4eFhrKysyBOtcrmMFy9ewDAMoFH2QqGARCKBarWKDz74AMPDwzJf4+PjOHv2rG2wXa/X8eGHHwKApW4+/vhjVKtVTExMIBQKyW2JNNX+1k1/bLWviWPPy7aT07HJ7lhERPS2Y2D/molgaWJiQp/1So2Pj8vANBKJ4OTJkzAMA5ubm9jd3UU6nZbLxuNxJBIJXL16VU6LRqMYHBwEAPj9fsRiMZTLZTm/lWw2i2QyKb9Y/X4/5ufnUSgUbIOPYrEIAJY8LS0tWZ4ZcCpPvV7HysoK5ufn5XyR3uLiIqrVqm1+KpWKJQC9d++eDOrtAtNWWtVVNpvFzMyMPAnwer2Ym5vD2tqaYzATDAaRTCYBJfCrVCq2d0ycqPWVSCQs2/T5fAiHw5bl9foR9ffw4cO29YtGnludyNq1Qas+oWvVR3744QdsbW1hbm4OXq8XaOx/AwMDWF1dlcu3MzAwgN7eXqARBG9vb1vmLy0tyZOOdu2q7yv9/f3Y2dmxfXZgaGgIW1tb2NzcRL1exzfffIPPPvsM2WwWUMoeiURQLBYRDoctx5eJiQmEw2EsLy/LacLm5mZT3aRSKXniqpYJSv9VddMf7dpZ7Gt2edlPO7Xa34iI3IaB/WtUKpWwsLBg+eJ6Xfr6+vRJQGMs84MHDxAIBCy3y/WgIBQK7asM9XodlUqlKf1IJIL33ntPXhFUlctlhMNh+Hw+fZakb08QAdjIyIilPCMjIwCAvb092/yonjx5gr/7u7/DixcvWi7nxKmuRF1MT09b8haJRPDkyRN9caldXXSi23LoywcCAZimif/+7/9uWb9Cqzzvp0/oWvURwzDg8Xgs4/NFANpNwKe2o9/vx/j4uGw7dfhJJ+0qAmGxn+l3h1S9vb3o6emBYRio1WrY3d3FL3/5Szx48ADVahXlchmxWAx+vx/lclleQRfp+nw+rK+v65sFHOrGjjpsSD8WONW7zqmdBbu8vGw7ERG5HQP712h1dVWOExZfYDs7OxgZGWk59OJVKpfL8la1uP0uPnZDIA6KYRh4+vSpPvmlGYaBx48fy1v/6qdSqeAnP/mJvoqtdDqNdDqNycnJjq4gd0KcdKTT6aa8vS1vfvmf//mflvUrruLvx2H1CaGbYNFOKpWCqQxPCQQCCIVCePjwYdt2FVeqTdNEOp2WJwF2Ab7X60UoFEI2m0WxWEQoFMLg4CB+9rOfYXNzEysrK0gkEkCjTNFoVA5lUT/d3mmCMt5dHTYkTkpelZdtJyIiN2Ng/xqJQEB8DMNAMBhELpc71KC5G319fXj8+HFHV0n3QwQp+pe13dU6oa+vD9vb26jVavqstgKBAE6ePNmUnuCUH9WJEycwNDQkAxqn8cPdEkNeWqV9EAzDaHkHoBN6HkV7/eVf/mXL+u2EUxu06hO6Vn1E3F1Q+3S7q8difidEkC62//3333fVruK4kE6nLWPpVYlEAoVCAXNzc0gkEvB6vTh37hy+/PJLbG1tyTpqVQ927OpGEGP3c7mcPEnrpl50Tu0s2OWlXTuJE3cioncVA3tqaXBwEAMDA5iampIBhnjzhN3VxE7oX9iJRALLy8vyrRTVahWTk5NyOIFOjM1WhwDk83mEQiE8evRIWbKZGDIxOzvb9BYR8baMRCKBbDbbNF+/iyLGfat513UTWHm9XkxNTTVtL5PJWIZ2dEMM7RDPQ9TrdczNzemLdc2uvcbHx3HmzJm29duJbvuErlUfOXbsGHp6eix9emFhAffu3cPQ0BDQaDe1D6ytrTkOX4HDPiHGuv/1X/9123bV27jeeBZkeHjYdhiJKN+9e/csQfzt27fR09Mjx/7bnXyWGm/nseuzYpiP+vxMqfEWpf/8z/8EtJO6iYmJlvXSTqt9TeTFqZ3EifDc3Jycf/XqVbx48UJuqx39WERE9LZjYP+GE8HIfoK6g+D1enHnzh2gcUVZXDEdHx/f1618KMFDJBJBJpORbzkZHR2V24/FYo53Lfx+PzY2NrC4uCjH+U5OTmJjYwOnTp3SF2+SSqUwMzMjh0B5PB5UKhXcuXMHXq8X8XgcN27csMxH42FIXTweRzKZtLx1RyUCsECHr9MTb+pQx6gvLi5iY2Ojo4BW5/f7cfPmTWSzWXg8Hpw6dQqjo6M4ceKEvmhXPvroI8zNzdn2h3b124lu+4SuVR95//33USgUEAqFZJ+enZ3F3bt35XCnVCol3w7k8XjkQ55ORD3Pzs7K9EZHR3Hz5k34/f627ZpKpRCLxeSJmM/nQygUctzH/I2HQNUHeCORCILBoOVkQNRDoVCQ6UYabxuyewuM2N8rlYpc/vz587h16xb+5m/+pqmMaAxL6/ShZl2rfc3r9bZsJ6/Xi+vXr2N7e1vOP3fuHILBoJ6MI/1YRET0tvOYpmnqE4mIiIiI6O3CK/ZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAgzsiYiIiIhcgIE9EREREZELMLAnIiIiInIBBvZERERERC7AwJ6IiIiIyAUY2BMRERERuQADeyIiIiIiF2BgT0RERETkAv8fC8myWam/n3sAAAAASUVORK5CYII=" class="img-fluid"></p>
 <p><strong>b. Implement/code your game plan</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q9 https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># arrange(desc(avg_SET_score_all_courses))</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q9 https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># arrange(desc(avg_SET_score_all_courses))</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83752,15 +83951,15 @@ vertical-align: -.125em;
 </div>
 <p><strong>10. Which instructor(s), who had <em>at least five</em> courses reviewed in the data, had the highest average rating for Question 1 (I learnt a lot during the course.) across all their courses?</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_courses <span class="sc">&gt;</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_courses <span class="sc">&gt;</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83782,14 +83981,14 @@ vertical-align: -.125em;
 </div>
 <p><strong>11. Which instructor(s) with either a doctorate or professor degree had the highest and lowest average percent of students responding to the evaluation across all their courses? Include how many years the instructor had worked (seniority) and their sex in your output. You can use two pipelines to answer these questions.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83810,13 +84009,13 @@ vertical-align: -.125em;
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -83850,17 +84049,17 @@ vertical-align: -.125em;
 <li><strong>contains only the variables we are interested in – <code>course_id</code>, <code>set_level</code>, and <code>sen_level</code>.</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12, seems weird skipping out years 4-5 </span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_compare <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set_level =</span> <span class="fu">case_when</span>(SET_score_avg <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;excellent&quot;</span>,</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;standard&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sen_level =</span> <span class="fu">case_when</span>(seniority <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;junior&quot;</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                               seniority <span class="sc">&gt;</span> <span class="dv">8</span>  <span class="sc">~</span> <span class="st">&quot;very senior&quot;</span>,</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                               (seniority <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> seniority <span class="sc">&lt;=</span> <span class="dv">8</span>) <span class="sc">~</span> <span class="st">&quot;senior&quot;</span>,</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;NEITHER&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id, set_level, sen_level)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(teacher_evals_compare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12, seems weird skipping out years 4-5 </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>teacher_evals_compare <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set_level =</span> <span class="fu">case_when</span>(SET_score_avg <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;excellent&quot;</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;standard&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sen_level =</span> <span class="fu">case_when</span>(seniority <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;junior&quot;</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                               seniority <span class="sc">&gt;</span> <span class="dv">8</span>  <span class="sc">~</span> <span class="st">&quot;very senior&quot;</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                               (seniority <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> seniority <span class="sc">&lt;=</span> <span class="dv">8</span>) <span class="sc">~</span> <span class="st">&quot;senior&quot;</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;NEITHER&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id, set_level, sen_level)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(teacher_evals_compare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -87627,18 +87826,18 @@ vertical-align: -.125em;
 </div>
 <p><strong>13. Using the new dataset and your <code>ggplot2</code> skills, recreate the filled bar plot shown in the lab instructions online.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13, https://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually https://chatgpt.com/share/6802fa42-6ba8-8009-bf93-998a9d554bf1, https://stackoverflow.com/questions/59008974/why-is-stat-identity-necessary-in-geom-bar-in-ggplot, https://stackoverflow.com/questions/14622421/how-to-change-legend-title-in-ggplot</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>proportion <span class="ot">&lt;-</span> teacher_evals_compare <span class="sc">|&gt;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level, set_level) <span class="sc">|&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level) <span class="sc">|&gt;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) </span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proportion, <span class="fu">aes</span>(<span class="at">x =</span> sen_level, <span class="at">y =</span> prop, <span class="at">fill =</span> set_level)) <span class="sc">+</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#154734&quot;</span>, <span class="st">&quot;#BD8B13&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evaluation of In-Class Activity Use by Instructor Seniority&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Conditional Proportion of Sections&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seniority of Instructor&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;SET level&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13, https://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually https://chatgpt.com/share/6802fa42-6ba8-8009-bf93-998a9d554bf1, https://stackoverflow.com/questions/59008974/why-is-stat-identity-necessary-in-geom-bar-in-ggplot, https://stackoverflow.com/questions/14622421/how-to-change-legend-title-in-ggplot</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>proportion <span class="ot">&lt;-</span> teacher_evals_compare <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level, set_level) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level) <span class="sc">|&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proportion, <span class="fu">aes</span>(<span class="at">x =</span> sen_level, <span class="at">y =</span> prop, <span class="at">fill =</span> set_level)) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#154734&quot;</span>, <span class="st">&quot;#BD8B13&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evaluation of In-Class Activity Use by Instructor Seniority&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Conditional Proportion of Sections&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seniority of Instructor&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;SET level&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -87649,8 +87848,8 @@ vertical-align: -.125em;
 </div>
 <p><strong>14. Use <code>chisq.test()</code> to carry out a chi-square test of independence between the SET level and instructor seniority level in your new dataset. You will want to look at the documentation and maybe Google a bit!</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q14</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> teacher_evals_compare<span class="sc">$</span>set_level, <span class="at">y =</span> teacher_evals_compare<span class="sc">$</span>sen_level) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q14</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> teacher_evals_compare<span class="sc">$</span>set_level, <span class="at">y =</span> teacher_evals_compare<span class="sc">$</span>sen_level) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson&#39;s Chi-squared test
@@ -88142,321 +88341,325 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb25" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Lab 3: Student Evaluations of Teaching&quot;</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Trycia Vong&quot;</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:  </span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Data</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>The <span class="in">`teacher_evals`</span> dataset contains student evaluations of teaching (SET) collected from students at a university in Poland. There are SET surveys from students in all fields and all levels of study offered by the university. </span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>The SET questionnaire that students at this university complete is as follows:</span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Evaluation survey of the teaching staff of </span><span class="co">[</span><span class="ot">university name</span><span class="co">]</span><span class="at">.</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Please complete the following evaluation form, which aims to assess the lecturer’s performance. Only one answer should be indicated for each question. The answers are coded in the following way: 5 - I strongly agree; 4 - I agree; 3 - Neutral; 2 - I don’t agree; 1 - I strongly don’t agree.</span></span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 1: I learnt a lot during the course. </span></span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 2: I think that the knowledge acquired during the course is very useful.</span></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 3: The professor used activities to make the class more engaging.</span></span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 4: If it was possible, I would enroll for a course conducted by this lecturer again. </span></span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 5: The classes started on time.</span></span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 6: The lecturer always used time efficiently.</span></span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 7: The lecturer delivered the class content in an understandable and efficient way.</span></span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 8: The lecturer was available when we had doubts.</span></span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 9. The lecturer treated all students equally regardless of their race, background and ethnicity.</span></span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>These data are from the end of the winter semester of the 2020-2021 academic year. In the period of data collection, all university  classes were entirely online amid the Covid-19 pandemic. While expected learning outcomes were not changed, the online mode of study could have affected grading policies and could have implications for the data.</span>
-<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>**Average SET scores** were combined with many other variables, including:</span>
-<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**characteristics of the teacher** (degree, seniority, gender, SET scores in the past 6 semesters).</span>
-<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**characteristics of the course** (time of day, day of the week, course type, course breadth, class duration, class size).</span>
-<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**percentage of students providing SET feedback.**</span>
-<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**course grades** (mean, standard deviation, percentage failed for the current course and previous 6 semesters).</span>
-<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>This rich dataset allows us to **investigate many of the biases in student evaluations of teaching** that have been reported in the literature and to formulate new hypotheses.</span>
-<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>**1. Load the appropriate R packages and the `teacher_evals` data.**</span>
-<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="in"># code chunk for loading packages</span></span>
-<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
-<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
-<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="in">library(readr)</span></span>
-<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for importing the data</span></span>
-<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a>teacherData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;teacher_evals.csv&quot;</span>)</span>
-<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Inspection + Summary</span></span>
-<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a>**2. Provide a brief overview (~4 sentences) of the dataset.**</span>
-<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a>**Summary**</span>
-<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a>The data came from Poland university students evaluating a professor from Winter 2020-2021.There are 22 columns and 8015 rows of data of SET (student evaluations of teaching). There is an average of 46.95 responses for each question per professor. And most students have an average grade of 3.962, which is a pretty good grade so maybe that influxes their opinion of the professor.</span>
-<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-85"><a href="#cb25-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-86"><a href="#cb25-86" aria-hidden="true" tabindex="-1"></a><span class="co"># you may want to use code to answer this question</span></span>
-<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(teacherData)</span>
-<span id="cb25-88"><a href="#cb25-88" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(teacherData)</span>
-<span id="cb25-89"><a href="#cb25-89" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(teacherData)</span>
-<span id="cb25-90"><a href="#cb25-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-92"><a href="#cb25-92" aria-hidden="true" tabindex="-1"></a>**3. What is the unit of observation (i.e. a single row in the dataset) identified by?**</span>
-<span id="cb25-93"><a href="#cb25-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-95"><a href="#cb25-95" aria-hidden="true" tabindex="-1"></a>The unit of observation is a professor and that specific question pertaining to that teacher and the questions rating of all the students and the students&#39; data.</span>
-<span id="cb25-96"><a href="#cb25-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a>**4. Use *one* `dplyr` pipeline to clean the data by**</span>
-<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-99"><a href="#cb25-99" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**renaming the `gender` variable `sex`,**</span>
-<span id="cb25-100"><a href="#cb25-100" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**removing all courses with fewer than 10 students (participants),** </span>
-<span id="cb25-101"><a href="#cb25-101" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**The `question_no` variable refers to the questions 1-9 in the survey, but weirdly takes the values 901-909. Update `question_no` so that it takes the values 1-9.**</span>
-<span id="cb25-102"><a href="#cb25-102" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**changing data types in whichever way you see fit (e.g., is the instructor ID really a numeric data type?), and** </span>
-<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**only keeping the columns we will use -- `course_id`, `teacher_id`, `question_no`, `no_participants`, `resp_share`, `SET_score_avg`, `percent_failed_cur`, `academic_degree`, `seniority`, and `sex`.**</span>
-<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-105"><a href="#cb25-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q4</span></span>
-<span id="cb25-110"><a href="#cb25-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-111"><a href="#cb25-111" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="ot">&lt;-</span> teacherData <span class="sc">|&gt;</span></span>
-<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sex =</span> gender) <span class="sc">|&gt;</span></span>
-<span id="cb25-113"><a href="#cb25-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_participants <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-114"><a href="#cb25-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">question_no =</span> question_no <span class="sc">-</span> <span class="dv">900</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">teacher_id =</span> <span class="fu">as.character</span>(teacher_id)) <span class="sc">|&gt;</span></span>
-<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id <span class="sc">:</span> SET_score_avg, percent_failed_cur, academic_degree <span class="sc">:</span> sex)</span>
-<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacher_evals_clean)</span>
-<span id="cb25-119"><a href="#cb25-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-120"><a href="#cb25-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-121"><a href="#cb25-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-122"><a href="#cb25-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a>**5. How many unique instructors and unique courses are present in the cleaned dataset?**</span>
-<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a>There are 294 instructors and 921 unique courses in the cleaned dataset.</span>
-<span id="cb25-126"><a href="#cb25-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-129"><a href="#cb25-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-130"><a href="#cb25-130" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q5</span></span>
-<span id="cb25-131"><a href="#cb25-131" aria-hidden="true" tabindex="-1"></a>teacherCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-132"><a href="#cb25-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">teacherCount =</span> <span class="fu">n_distinct</span>(teacher_id))</span>
-<span id="cb25-133"><a href="#cb25-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-134"><a href="#cb25-134" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacherCount)</span>
-<span id="cb25-135"><a href="#cb25-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-136"><a href="#cb25-136" aria-hidden="true" tabindex="-1"></a>courseCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-137"><a href="#cb25-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">courseCount =</span> <span class="fu">n_distinct</span>(course_id))</span>
-<span id="cb25-138"><a href="#cb25-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-139"><a href="#cb25-139" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(courseCount)</span>
-<span id="cb25-140"><a href="#cb25-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-141"><a href="#cb25-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-142"><a href="#cb25-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-143"><a href="#cb25-143" aria-hidden="true" tabindex="-1"></a>**6. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in? Your code output should clearly answer this question.**</span>
-<span id="cb25-144"><a href="#cb25-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-145"><a href="#cb25-145" aria-hidden="true" tabindex="-1"></a>The instructor with the id &quot;56347&quot; has some missing values. It is the &quot;PAB3SE004PA&quot; course and the missing variable is percent_failed_cur.</span>
-<span id="cb25-146"><a href="#cb25-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-149"><a href="#cb25-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-150"><a href="#cb25-150" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q6 https://stackoverflow.com/questions/69720079/filter-dataframe-when-all-columns-are-na-in-dplyr, https://chatgpt.com/share/68019727-e014-8009-b21d-028816e09e49</span></span>
-<span id="cb25-151"><a href="#cb25-151" aria-hidden="true" tabindex="-1"></a>mysteryTeacher <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-152"><a href="#cb25-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">is.na</span>(.)))</span>
-<span id="cb25-153"><a href="#cb25-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-154"><a href="#cb25-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-155"><a href="#cb25-155" aria-hidden="true" tabindex="-1"></a>**7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in ~3 complete sentences.**</span>
-<span id="cb25-156"><a href="#cb25-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-157"><a href="#cb25-157" aria-hidden="true" tabindex="-1"></a>There are 134 female professors and 160 male professors in this SET study. The average seniority between all teachers is 4.891 years of teaching. Out of the 294 professors, 168 have doctorates, 75 have a masters, 43 have no degree and 8 are just professors. </span>
-<span id="cb25-158"><a href="#cb25-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q7</span></span>
-<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-167"><a href="#cb25-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-168"><a href="#cb25-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-169"><a href="#cb25-169" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-170"><a href="#cb25-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-171"><a href="#cb25-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-172"><a href="#cb25-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span></span>
-<span id="cb25-173"><a href="#cb25-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-174"><a href="#cb25-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-175"><a href="#cb25-175" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-176"><a href="#cb25-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-177"><a href="#cb25-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-178"><a href="#cb25-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(academic_degree) <span class="sc">|&gt;</span></span>
-<span id="cb25-179"><a href="#cb25-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-180"><a href="#cb25-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-181"><a href="#cb25-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
-<span id="cb25-182"><a href="#cb25-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-183"><a href="#cb25-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-184"><a href="#cb25-184" aria-hidden="true" tabindex="-1"></a>**8. Each course seems to have used a different subset of the 9 evaluation questions. How many teacher-course combinations asked all 9 questions?**</span>
-<span id="cb25-185"><a href="#cb25-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-186"><a href="#cb25-186" aria-hidden="true" tabindex="-1"></a>48 teacher-course combinations asked all 9 questions.</span>
-<span id="cb25-187"><a href="#cb25-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-190"><a href="#cb25-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-191"><a href="#cb25-191" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q8, https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
-<span id="cb25-192"><a href="#cb25-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-193"><a href="#cb25-193" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-194"><a href="#cb25-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb25-195"><a href="#cb25-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n_distinct</span>(question_no) <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-196"><a href="#cb25-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb25-197"><a href="#cb25-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-198"><a href="#cb25-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-199"><a href="#cb25-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-200"><a href="#cb25-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-201"><a href="#cb25-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rate my Professor</span></span>
-<span id="cb25-202"><a href="#cb25-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-203"><a href="#cb25-203" aria-hidden="true" tabindex="-1"></a>**9. Which instructor(s) had the lowest average rating for Question 1 (&quot;I learnt a lot during the course.&quot;) *across all their courses* (i.e. you should be looking at the mean of the `SET_score_avg` variable across courses for each instructor)? Include the number of courses the instructor(s) taught in your output**</span>
-<span id="cb25-204"><a href="#cb25-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-205"><a href="#cb25-205" aria-hidden="true" tabindex="-1"></a>**a. Sketch a game plan and include the image below.**</span>
-<span id="cb25-206"><a href="#cb25-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-207"><a href="#cb25-207" aria-hidden="true" tabindex="-1"></a><span class="al">![](gameplan.png)</span></span>
-<span id="cb25-208"><a href="#cb25-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-209"><a href="#cb25-209" aria-hidden="true" tabindex="-1"></a>**b. Implement/code your game plan**</span>
-<span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q9 https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
-<span id="cb25-215"><a href="#cb25-215" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-216"><a href="#cb25-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-217"><a href="#cb25-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb25-218"><a href="#cb25-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
-<span id="cb25-219"><a href="#cb25-219" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
-<span id="cb25-220"><a href="#cb25-220" aria-hidden="true" tabindex="-1"></a>  <span class="co"># arrange(desc(avg_SET_score_all_courses))</span></span>
-<span id="cb25-221"><a href="#cb25-221" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-222"><a href="#cb25-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb25-223"><a href="#cb25-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-224"><a href="#cb25-224" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-226"><a href="#cb25-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-227"><a href="#cb25-227" aria-hidden="true" tabindex="-1"></a>**10. Which instructor(s), who had *at least five* courses reviewed in the data, had the highest average rating for Question 1 (I learnt a lot during the course.) across all their courses?**</span>
-<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
-<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
-<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
-<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
-<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_courses <span class="sc">&gt;</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a>**11. Which instructor(s) with either a doctorate or professor degree had the highest and lowest average percent of students responding to the evaluation across all their courses? Include how many years the instructor had worked (seniority) and their sex in your output. You can use two pipelines to answer these questions.**</span>
-<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
-<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
-<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
-<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
-<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
-<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
-<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chi-Square Test of Independence</span></span>
-<span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a>Let’s compare the level of SET ratings for *Question 3* (The professor used activities to make the class more engaging.) between senior instructors and junior instructors.</span>
-<span id="cb25-271"><a href="#cb25-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a>**12. Create a new dataset `teacher_evals_compare` that accomplishes the following with one `dplyr` pipeline:** </span>
-<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**includes responses for Question 3 only,**</span>
-<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**creates a new variable called `set_level` that is “excellent” if the `SET_score_avg` is 4 or higher (inclusive) and “standard” otherwise,**</span>
-<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**creates a new variable called `sen_level` that is “junior” if the instructor has been teaching for 4 years or less (inclusive), “senior” if between 5-8 years (inclusive), and &quot;very senior&quot; if more than 8 years**</span>
-<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**contains only the variables we are interested in – `course_id`, `set_level`, and `sen_level`.**</span>
-<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12, seems weird skipping out years 4-5 </span></span>
-<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a>teacher_evals_compare <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
-<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set_level =</span> <span class="fu">case_when</span>(SET_score_avg <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;excellent&quot;</span>,</span>
-<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;standard&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sen_level =</span> <span class="fu">case_when</span>(seniority <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;junior&quot;</span>,</span>
-<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a>                               seniority <span class="sc">&gt;</span> <span class="dv">8</span>  <span class="sc">~</span> <span class="st">&quot;very senior&quot;</span>,</span>
-<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a>                               (seniority <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> seniority <span class="sc">&lt;=</span> <span class="dv">8</span>) <span class="sc">~</span> <span class="st">&quot;senior&quot;</span>,</span>
-<span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;NEITHER&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb25-292"><a href="#cb25-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id, set_level, sen_level)</span>
-<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(teacher_evals_compare)</span>
-<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a>**13. Using the new dataset and your `ggplot2` skills, recreate the filled bar plot shown in the lab instructions online.**</span>
-<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13, https://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually https://chatgpt.com/share/6802fa42-6ba8-8009-bf93-998a9d554bf1, https://stackoverflow.com/questions/59008974/why-is-stat-identity-necessary-in-geom-bar-in-ggplot, https://stackoverflow.com/questions/14622421/how-to-change-legend-title-in-ggplot</span></span>
-<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a>proportion <span class="ot">&lt;-</span> teacher_evals_compare <span class="sc">|&gt;</span></span>
-<span id="cb25-307"><a href="#cb25-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level, set_level) <span class="sc">|&gt;</span></span>
-<span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span></span>
-<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level) <span class="sc">|&gt;</span></span>
-<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) </span>
-<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proportion, <span class="fu">aes</span>(<span class="at">x =</span> sen_level, <span class="at">y =</span> prop, <span class="at">fill =</span> set_level)) <span class="sc">+</span></span>
-<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#154734&quot;</span>, <span class="st">&quot;#BD8B13&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evaluation of In-Class Activity Use by Instructor Seniority&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Conditional Proportion of Sections&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seniority of Instructor&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;SET level&quot;</span>)</span>
-<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a>**14. Use `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor seniority level in your new dataset. You will want to look at the documentation and maybe Google a bit!**</span>
-<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q14</span></span>
-<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> teacher_evals_compare<span class="sc">$</span>set_level, <span class="at">y =</span> teacher_evals_compare<span class="sc">$</span>sen_level) </span>
-<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a>**15. Draw a conclusion about the independence of student evaluation of instructor&#39;s use of activities and seniority level based on your chi-square test.**</span>
-<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a>**Conclusion**</span>
-<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a>Using an alpha of 0.05, we got a p-value of 0.001299, so we reject the null hypothesis and can conclude that the instructor&#39;s use of activities and seniority level are dependent of each other.</span>
-<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Critique</span></span>
-<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a>Part of the impetus behind this study was to investigate characteristics of a course or an instructor that might affect student evaluations of teaching that are **not** explicitly related to teaching effectiveness. For instance, it has been shown that gender identity and presentation affect student evaluations of teaching (<span class="co">[</span><span class="ot">an example</span><span class="co">](https://link.springer.com/article/10.1007/s10755-014-9313-4?nr_email_referer=1)</span>).</span>
-<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a>**16. If you were to conduct this study at Cal Poly, what are two other variables you would like to collect that you think might be related to student evaluations? These should be course or instructor characteristics that were not collected in this study. Explain what effects you would expect to see for each.**</span>
-<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a>I think that they should add for students the average amount of hours spent doing work for that class. If they did a lot of work and got a bad grade their opinion will probably be more negative and if it was the opposite their opinion might be more positive regardless of that professor&#39;s teaching techniques.And for the second variable maybe the availability of office hours or the amount of students who came to office hours. Usually high numbers indicate how approachable a professor is. And if they have high numbers their ratings will probably tend to be higher as student&#39;s are feel safe enough to ask for help and will think highly of their professor as they get to know them more. </span>
+<div class="sourceCode" id="cb23" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Lab 3: Student Evaluations of Teaching&quot;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Trycia Vong&quot;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:  </span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Data</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>The <span class="in">`teacher_evals`</span> dataset contains student evaluations of teaching (SET) collected from students at a university in Poland. There are SET surveys from students in all fields and all levels of study offered by the university. </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>The SET questionnaire that students at this university complete is as follows:</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Evaluation survey of the teaching staff of </span><span class="co">[</span><span class="ot">university name</span><span class="co">]</span><span class="at">.</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Please complete the following evaluation form, which aims to assess the lecturer’s performance. Only one answer should be indicated for each question. The answers are coded in the following way: 5 - I strongly agree; 4 - I agree; 3 - Neutral; 2 - I don’t agree; 1 - I strongly don’t agree.</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 1: I learnt a lot during the course. </span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 2: I think that the knowledge acquired during the course is very useful.</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 3: The professor used activities to make the class more engaging.</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 4: If it was possible, I would enroll for a course conducted by this lecturer again. </span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 5: The classes started on time.</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 6: The lecturer always used time efficiently.</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 7: The lecturer delivered the class content in an understandable and efficient way.</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 8: The lecturer was available when we had doubts.</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Question 9. The lecturer treated all students equally regardless of their race, background and ethnicity.</span></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>These data are from the end of the winter semester of the 2020-2021 academic year. In the period of data collection, all university  classes were entirely online amid the Covid-19 pandemic. While expected learning outcomes were not changed, the online mode of study could have affected grading policies and could have implications for the data.</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>**Average SET scores** were combined with many other variables, including:</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**characteristics of the teacher** (degree, seniority, gender, SET scores in the past 6 semesters).</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**characteristics of the course** (time of day, day of the week, course type, course breadth, class duration, class size).</span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**percentage of students providing SET feedback.**</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**course grades** (mean, standard deviation, percentage failed for the current course and previous 6 semesters).</span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>This rich dataset allows us to **investigate many of the biases in student evaluations of teaching** that have been reported in the literature and to formulate new hypotheses.</span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>**1. Load the appropriate R packages and the `teacher_evals` data.**</span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a><span class="in"># code chunk for loading packages</span></span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a><span class="in">library(readr)</span></span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for importing the data</span></span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>teacherData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;teacher_evals.csv&quot;</span>)</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Inspection + Summary</span></span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>**2. Provide a brief overview (~4 sentences) of the dataset.**</span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>**Summary**</span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>The data came from Poland university students evaluating a professor from Winter 2020-2021.There are 22 columns and 8015 rows of data of SET (student evaluations of teaching). There is an average of 46.95 responses for each question per professor. And most students have an average grade of 3.962, which is a pretty good grade so maybe that influxes their opinion of the professor.</span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a><span class="co"># you may want to use code to answer this question</span></span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(teacherData) <span class="sc">|&gt;</span></span>
+<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(teacherData) <span class="sc">|&gt;</span></span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(teacherData)</span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a>**3. What is the unit of observation (i.e. a single row in the dataset) identified by?**</span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>The unit of observation is a professor and that specific question pertaining to that teacher and the questions rating of all the students and the students&#39; data.</span>
+<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>**4. Use *one* `dplyr` pipeline to clean the data by**</span>
+<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**renaming the `gender` variable `sex`,**</span>
+<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**removing all courses with fewer than 10 students (participants),** </span>
+<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**The `question_no` variable refers to the questions 1-9 in the survey, but weirdly takes the values 901-909. Update `question_no` so that it takes the values 1-9.**</span>
+<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**changing data types in whichever way you see fit (e.g., is the instructor ID really a numeric data type?), and** </span>
+<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**only keeping the columns we will use -- `course_id`, `teacher_id`, `question_no`, `no_participants`, `resp_share`, `SET_score_avg`, `percent_failed_cur`, `academic_degree`, `seniority`, and `sex`.**</span>
+<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q4</span></span>
+<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="ot">&lt;-</span> teacherData <span class="sc">|&gt;</span></span>
+<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sex =</span> gender) <span class="sc">|&gt;</span></span>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_participants <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-118"><a href="#cb23-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">question_no =</span> question_no <span class="sc">-</span> <span class="dv">900</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-119"><a href="#cb23-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">teacher_id =</span> <span class="fu">as.character</span>(teacher_id)) <span class="sc">|&gt;</span></span>
+<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id <span class="sc">:</span> SET_score_avg, percent_failed_cur, academic_degree <span class="sc">:</span> sex)</span>
+<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacher_evals_clean)</span>
+<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a>**5. How many unique instructors and unique courses are present in the cleaned dataset?**</span>
+<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>There are 294 instructors and 921 unique courses in the cleaned dataset.</span>
+<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q5</span></span>
+<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a>teacherCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">teacherCount =</span> <span class="fu">n_distinct</span>(teacher_id))</span>
+<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(teacherCount)</span>
+<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a>courseCount <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">courseCount =</span> <span class="fu">n_distinct</span>(course_id))</span>
+<span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(courseCount)</span>
+<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>**6. One teacher-course combination has some missing values, coded as `NA`. Which instructor has these missing values? Which course? What variable are the missing values in? Your code output should clearly answer this question.**</span>
+<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>The instructor with the id &quot;56347&quot; has some missing values. It is the &quot;PAB3SE004PA&quot; course and the missing variable is percent_failed_cur.</span>
+<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q6 https://stackoverflow.com/questions/69720079/filter-dataframe-when-all-columns-are-na-in-dplyr, https://chatgpt.com/share/68019727-e014-8009-b21d-028816e09e49</span></span>
+<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a>mysteryTeacher <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">is.na</span>(.)))</span>
+<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>**7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex` and summarize your findings in ~3 complete sentences.**</span>
+<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a>There are 134 female professors and 160 male professors in this SET study. The average seniority between all teachers is 4.891 years of teaching. Out of the 294 professors, 168 have doctorates, 75 have a masters, 43 have no degree and 8 are just professors. </span>
+<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q7</span></span>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(teacher_id, academic_degree, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(teacher_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(academic_degree) <span class="sc">|&gt;</span></span>
+<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a>**8. Each course seems to have used a different subset of the 9 evaluation questions. How many teacher-course combinations asked all 9 questions?**</span>
+<span id="cb23-189"><a href="#cb23-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a>48 teacher-course combinations asked all 9 questions.</span>
+<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-194"><a href="#cb23-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q8, https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
+<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n_distinct</span>(question_no) <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(course_id, teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb23-201"><a href="#cb23-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-202"><a href="#cb23-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rate my Professor</span></span>
+<span id="cb23-206"><a href="#cb23-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-207"><a href="#cb23-207" aria-hidden="true" tabindex="-1"></a>**9. Which instructor(s) had the lowest average rating for Question 1 (&quot;I learnt a lot during the course.&quot;) *across all their courses* (i.e. you should be looking at the mean of the `SET_score_avg` variable across courses for each instructor)? Include the number of courses the instructor(s) taught in your output**</span>
+<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-209"><a href="#cb23-209" aria-hidden="true" tabindex="-1"></a>**a. Sketch a game plan and include the image below.**</span>
+<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a><span class="al">![](gameplan.png)</span></span>
+<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a>**b. Implement/code your game plan**</span>
+<span id="cb23-214"><a href="#cb23-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-218"><a href="#cb23-218" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q9 https://chatgpt.com/share/6802e159-f878-8009-9ce2-d088c93fe4d5</span></span>
+<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-220"><a href="#cb23-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a>  <span class="co"># arrange(desc(avg_SET_score_all_courses))</span></span>
+<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-231"><a href="#cb23-231" aria-hidden="true" tabindex="-1"></a>**10. Which instructor(s), who had *at least five* courses reviewed in the data, had the highest average rating for Question 1 (I learnt a lot during the course.) across all their courses?**</span>
+<span id="cb23-232"><a href="#cb23-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
+<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-238"><a href="#cb23-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-239"><a href="#cb23-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id) <span class="sc">|&gt;</span></span>
+<span id="cb23-240"><a href="#cb23-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_SET_score_all_courses =</span> <span class="fu">mean</span>(SET_score_avg),</span>
+<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a>            <span class="at">number_of_courses =</span> <span class="fu">n_distinct</span>(course_id)) <span class="sc">|&gt;</span></span>
+<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_courses <span class="sc">&gt;</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-243"><a href="#cb23-243" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_SET_score_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb23-244"><a href="#cb23-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-245"><a href="#cb23-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-246"><a href="#cb23-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a>**11. Which instructor(s) with either a doctorate or professor degree had the highest and lowest average percent of students responding to the evaluation across all their courses? Include how many years the instructor had worked (seniority) and their sex in your output. You can use two pipelines to answer these questions.**</span>
+<span id="cb23-249"><a href="#cb23-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-250"><a href="#cb23-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
+<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-258"><a href="#cb23-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
+<span id="cb23-259"><a href="#cb23-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-262"><a href="#cb23-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-263"><a href="#cb23-263" aria-hidden="true" tabindex="-1"></a>teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-264"><a href="#cb23-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(academic_degree <span class="sc">==</span> <span class="st">&quot;dr&quot;</span> <span class="sc">|</span> academic_degree <span class="sc">==</span> <span class="st">&quot;prof&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-265"><a href="#cb23-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(teacher_id, seniority, sex) <span class="sc">|&gt;</span></span>
+<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_response_all_courses =</span> <span class="fu">mean</span>(resp_share)) <span class="sc">|&gt;</span></span>
+<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-268"><a href="#cb23-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> avg_response_all_courses) <span class="sc">|&gt;</span></span>
+<span id="cb23-269"><a href="#cb23-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb23-270"><a href="#cb23-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chi-Square Test of Independence</span></span>
+<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a>Let’s compare the level of SET ratings for *Question 3* (The professor used activities to make the class more engaging.) between senior instructors and junior instructors.</span>
+<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a>**12. Create a new dataset `teacher_evals_compare` that accomplishes the following with one `dplyr` pipeline:** </span>
+<span id="cb23-277"><a href="#cb23-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-278"><a href="#cb23-278" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**includes responses for Question 3 only,**</span>
+<span id="cb23-279"><a href="#cb23-279" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**creates a new variable called `set_level` that is “excellent” if the `SET_score_avg` is 4 or higher (inclusive) and “standard” otherwise,**</span>
+<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**creates a new variable called `sen_level` that is “junior” if the instructor has been teaching for 4 years or less (inclusive), “senior” if between 5-8 years (inclusive), and &quot;very senior&quot; if more than 8 years**</span>
+<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**contains only the variables we are interested in – `course_id`, `set_level`, and `sen_level`.**</span>
+<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-283"><a href="#cb23-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12, seems weird skipping out years 4-5 </span></span>
+<span id="cb23-288"><a href="#cb23-288" aria-hidden="true" tabindex="-1"></a>teacher_evals_compare <span class="ot">&lt;-</span> teacher_evals_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-289"><a href="#cb23-289" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question_no <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set_level =</span> <span class="fu">case_when</span>(SET_score_avg <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;excellent&quot;</span>,</span>
+<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;standard&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sen_level =</span> <span class="fu">case_when</span>(seniority <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;junior&quot;</span>,</span>
+<span id="cb23-293"><a href="#cb23-293" aria-hidden="true" tabindex="-1"></a>                               seniority <span class="sc">&gt;</span> <span class="dv">8</span>  <span class="sc">~</span> <span class="st">&quot;very senior&quot;</span>,</span>
+<span id="cb23-294"><a href="#cb23-294" aria-hidden="true" tabindex="-1"></a>                               (seniority <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> seniority <span class="sc">&lt;=</span> <span class="dv">8</span>) <span class="sc">~</span> <span class="st">&quot;senior&quot;</span>,</span>
+<span id="cb23-295"><a href="#cb23-295" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span>               <span class="sc">~</span> <span class="st">&quot;NEITHER&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-296"><a href="#cb23-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(course_id, set_level, sen_level)</span>
+<span id="cb23-297"><a href="#cb23-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(teacher_evals_compare)</span>
+<span id="cb23-298"><a href="#cb23-298" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-299"><a href="#cb23-299" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-300"><a href="#cb23-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-301"><a href="#cb23-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-302"><a href="#cb23-302" aria-hidden="true" tabindex="-1"></a>**13. Using the new dataset and your `ggplot2` skills, recreate the filled bar plot shown in the lab instructions online.**</span>
+<span id="cb23-303"><a href="#cb23-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-304"><a href="#cb23-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-307"><a href="#cb23-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-308"><a href="#cb23-308" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13, https://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually https://chatgpt.com/share/6802fa42-6ba8-8009-bf93-998a9d554bf1, https://stackoverflow.com/questions/59008974/why-is-stat-identity-necessary-in-geom-bar-in-ggplot, https://stackoverflow.com/questions/14622421/how-to-change-legend-title-in-ggplot</span></span>
+<span id="cb23-309"><a href="#cb23-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-310"><a href="#cb23-310" aria-hidden="true" tabindex="-1"></a>proportion <span class="ot">&lt;-</span> teacher_evals_compare <span class="sc">|&gt;</span></span>
+<span id="cb23-311"><a href="#cb23-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level, set_level) <span class="sc">|&gt;</span></span>
+<span id="cb23-312"><a href="#cb23-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-313"><a href="#cb23-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sen_level) <span class="sc">|&gt;</span></span>
+<span id="cb23-314"><a href="#cb23-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) </span>
+<span id="cb23-315"><a href="#cb23-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-316"><a href="#cb23-316" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proportion, <span class="fu">aes</span>(<span class="at">x =</span> sen_level, <span class="at">y =</span> prop, <span class="at">fill =</span> set_level)) <span class="sc">+</span></span>
+<span id="cb23-317"><a href="#cb23-317" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb23-318"><a href="#cb23-318" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#154734&quot;</span>, <span class="st">&quot;#BD8B13&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb23-319"><a href="#cb23-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evaluation of In-Class Activity Use by Instructor Seniority&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Conditional Proportion of Sections&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Seniority of Instructor&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;SET level&quot;</span>)</span>
+<span id="cb23-320"><a href="#cb23-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-321"><a href="#cb23-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-322"><a href="#cb23-322" aria-hidden="true" tabindex="-1"></a>**14. Use `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor seniority level in your new dataset. You will want to look at the documentation and maybe Google a bit!**</span>
+<span id="cb23-323"><a href="#cb23-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-324"><a href="#cb23-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-327"><a href="#cb23-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-328"><a href="#cb23-328" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q14</span></span>
+<span id="cb23-329"><a href="#cb23-329" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> teacher_evals_compare<span class="sc">$</span>set_level, <span class="at">y =</span> teacher_evals_compare<span class="sc">$</span>sen_level) </span>
+<span id="cb23-330"><a href="#cb23-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-331"><a href="#cb23-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-332"><a href="#cb23-332" aria-hidden="true" tabindex="-1"></a>**15. Draw a conclusion about the independence of student evaluation of instructor&#39;s use of activities and seniority level based on your chi-square test.**</span>
+<span id="cb23-333"><a href="#cb23-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-334"><a href="#cb23-334" aria-hidden="true" tabindex="-1"></a>**Conclusion**</span>
+<span id="cb23-335"><a href="#cb23-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-336"><a href="#cb23-336" aria-hidden="true" tabindex="-1"></a>Using an alpha of 0.05, we got a p-value of 0.001299, so we reject the null hypothesis and can conclude that the instructor&#39;s use of activities and seniority level are dependent of each other.</span>
+<span id="cb23-337"><a href="#cb23-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-338"><a href="#cb23-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-339"><a href="#cb23-339" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Critique</span></span>
+<span id="cb23-340"><a href="#cb23-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-341"><a href="#cb23-341" aria-hidden="true" tabindex="-1"></a>Part of the impetus behind this study was to investigate characteristics of a course or an instructor that might affect student evaluations of teaching that are **not** explicitly related to teaching effectiveness. For instance, it has been shown that gender identity and presentation affect student evaluations of teaching (<span class="co">[</span><span class="ot">an example</span><span class="co">](https://link.springer.com/article/10.1007/s10755-014-9313-4?nr_email_referer=1)</span>).</span>
+<span id="cb23-342"><a href="#cb23-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-343"><a href="#cb23-343" aria-hidden="true" tabindex="-1"></a>**16. If you were to conduct this study at Cal Poly, what are two other variables you would like to collect that you think might be related to student evaluations? These should be course or instructor characteristics that were not collected in this study. Explain what effects you would expect to see for each.**</span>
+<span id="cb23-344"><a href="#cb23-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-345"><a href="#cb23-345" aria-hidden="true" tabindex="-1"></a>I think that they should add for students the average amount of hours spent doing work for that class. If they did a lot of work and got a bad grade their opinion will probably be more negative and if it was the opposite their opinion might be more positive regardless of that professor&#39;s teaching techniques.And for the second variable maybe the availability of office hours or the amount of students who came to office hours. Usually high numbers indicate how approachable a professor is. And if they have high numbers their ratings will probably tend to be higher as student&#39;s are feel safe enough to ask for help and will think highly of their professor as they get to know them more. </span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

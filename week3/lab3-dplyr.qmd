@@ -80,8 +80,12 @@ The data came from Poland university students evaluating a professor from Winter
 
 ```{r}
 # you may want to use code to answer this question
-summary(teacherData)
-dim(teacherData)
+summary(teacherData) |>
+  kable()
+
+dim(teacherData) |>
+  kable()
+
 spec(teacherData)
 ```
 
