@@ -92,7 +92,7 @@ Don't worry about missing values! We are just gathering all of the information t
 ```{r}
 # code to create get_fit_now_full
 get_fit_now_full <- 
-  full_join(get_fit_now_member, get_fit_now_check_in, by = join_by("id" == "membership_id")) 
+  full_join( get_fit_now_check_in, get_fit_now_member, by = join_by("membership_id" == "id")) 
 
 ```
 
@@ -157,7 +157,17 @@ witness_1$transcript
 ###Witness 2's Testimony
 
 ```{r}
-witness_2$transcript
+witness_2$transcript 
+```
+###Finding the Criminal from Testimonies
+
+```{r}
+# Testimony from witness 2 doesn't help as the two filtered suspects have the same check in date at line 3
+criminal <- get_fit_now_full |>
+  filter(membership_status == "gold") |>
+  filter(str_detect(membership_id, pattern = "^48Z")) |>
+  inner_join(suspects_all, by = join_by("person_id" == "id")) |>
+  filter(str_detect(plate_number, pattern = "H42W"))
 ```
 
 
