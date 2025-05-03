@@ -15,10 +15,6 @@ execute:
   warning: false
 ---
 
-
-For this lab, you will be joining and filtering related datasets to solve a murder mystery!
-
-
 ## Instructions
 
 Northwestern University's Knight Lab wanted to help sharpen users' database skills, so they created a murder mystery. Can you solve this crime in SQL City??
@@ -37,14 +33,11 @@ This code chunk will read in all of the tables of data for you. Don't modify or 
 #| message: false
 #| warning: false
 library(tidyverse)
+library(knitr)
 
 url("https://raw.githubusercontent.com/manncz/stat-331-s25/main/labs/lab5/data/bCH_murder_data.Rdata") |> 
   load()
 ```
-
-:::callout-tip
-If the code above does not work for you for some reason, you can download the special data file [here](data/bCH_murder_data.Rdata) and use the `load()` function to read it in.
-:::
 
 ## Clean and Combine the Data
 
@@ -69,7 +62,7 @@ For example, if you re-combine the `address_number` and `address_street_name` co
 
 ```{r}
 # code for Q0.2
-str_c(person$address_number[1], " ", person$address_street_name[1]) == person$address[1]
+kable(str_c(person$address_number[1], " ", person$address_street_name[1]) == person$address[1] )
 ```
 
 **0.3 Create two new datasets:**
@@ -85,9 +78,6 @@ str_c(person$address_number[1], " ", person$address_street_name[1]) == person$ad
   - drop the `address` column
   - should have 10,011 rows and 16 columns
 
-:::callout-tip
-Don't worry about missing values! We are just gathering all of the information that we have about everyone.
-:::
   
 ```{r}
 # code to create get_fit_now_full
@@ -101,7 +91,7 @@ get_fit_now_full <-
 # code to create suspects_all
 suspects_all <-
   full_join(person, interview, by = join_by("id" == "person_id")) |>
-  left_join(income, by = "ssn") |>
+  full_join(income, by = "ssn") |>
   left_join(drivers_license, by = join_by("license_id" == "id")) |>
   select(-address)
 
@@ -116,7 +106,7 @@ Detective Wickham reaches out to you...
 
 > A crime has taken place and I need your help! There was a murder in SQL City sometime on Jan.15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!
 
-###Filtering the Crime
+### Filtering the Crime
 
 ```{r}
 crime_filtered <- crime_scene_report |>
@@ -126,40 +116,36 @@ crime_filtered <- crime_scene_report |>
   filter(city == "SQL City")
 ```
 
-###Description of Crime
+### Description of Crime
 
 ```{r}
-crime_filtered$description 
+crime_filtered$description |> kable()
 ```
-###Witness 1
+### Finding the Witnesses
 
 ```{r}
 witness_1 <- suspects_all |>
   filter(address_street_name == "Northwestern Dr") |>
   filter(!is.na(transcript)) |>
   arrange(desc(address_number)) |>
-  head(1)
-```
+  head(1) 
 
-###Witness 2
-
-```{r}
 witness_2 <- suspects_all |>
   filter(address_street_name == "Franklin Ave") |>
-  filter(str_detect(name, "Annabel"))
+  filter(str_detect(name, "Annabel")) 
 ```
 
-###Witness 1's Testimony
-
-```{r}
-witness_1$transcript
-```
-###Witness 2's Testimony
+### Witness 1's Testimony
 
 ```{r}
-witness_2$transcript 
+witness_1$transcript |> kable()
 ```
-###Finding the Criminal from Testimonies
+### Witness 2's Testimony
+
+```{r}
+witness_2$transcript |> kable()
+```
+### Finding the Criminal from the Testimonies
 
 ```{r}
 # Testimony from witness 2 doesn't help as the two filtered suspects have the same check in date at line 3
@@ -170,47 +156,41 @@ criminal <- get_fit_now_full |>
   filter(str_detect(plate_number, pattern = "H42W"))
 ```
 
-
-Solve the murder mystery, showing **all of your work in this document**. Your document and code must be well organized, easy to follow, and reproducible.
-
-+ Use headers and written descriptions to indicate what you are doing.
-+ You **must** use `dplyr` verbs and `join` functions rather than just looking through the tables manually.
-+ You should never filter on a specific person id -- rather use `join` functions
-+ You should have a final output that just includes the murder's name as well as their interview transcript (which is missing!).
-+ Use the data frames you just created when helpful!
-+ Use good code formatting practices.
-+ Comment your code.
-+ Cite any external sources you use to solve the mystery.
-
-::: callout-tip
-
-Use `kable()` to nicely output clues!
-
-:::
-
-
-**Follow the evidence to the person responsible for the murder, building a report as you go.**
-
+### The "Criminal's" Testimony
 
 ```{r}
-# code for looking at the relevant crime scene report.
-
-# you will want to use multiple chunks!
+criminal$transcript |> kable()
 ```
 
 
-::: callout-caution
+### Who Hired Jeremy Bowers???
 
-Make sure you check for interviews with any suspects and anyone mentioned!
+```{r}
+woman <- suspects_all |>
+  filter(gender == "female") |>
+  filter(hair_color == "red") |>
+  filter(height >= 65 & height <= 67) |>
+  filter(car_make == "Tesla") |>
+  filter(car_model == "Model S") |>
+  filter(annual_income > 0)
 
-**The murderer will have no interview** - don't stop until you find them!
+event <- facebook_event_checkin |>
+  filter(event_name == "SQL Symphony Concert") |>
+  mutate(date = ymd(date)) |>
+  filter(year(date) == 2017) |>
+  filter(month(date) == 12)
 
-:::
+inner_join(woman, event, by = join_by("id" == "person_id")) |>
+  kable()
+
+
+```
+
 
 ::: callout-note
 
 ## And the final suspect is...
 
-*put the name of the person responsible for the murder here.*
+*Miranda Priestly*
 
 :::
