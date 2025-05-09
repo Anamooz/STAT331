@@ -1,0 +1,150 @@
+---
+title: "Stat 331/531: Midterm Exam Open-Ended Analysis"
+date: 5-8-2025
+author: "Trycia Vong"
+format: 
+  html:
+    embed-resources: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+### Take-Home Questions
+
+```{r setup}
+
+library(tidyverse)
+library(knitr)
+library(janitor)
+
+minimum_wage_data <- read_csv('us-minimum-wage-data.csv') |>
+  clean_names()
+
+party_data <- read_csv('us-party-data.csv')
+```
+
+**Question 1.**
+
+```{r}
+#https://stackoverflow.com/questions/38649533/case-when-in-mutate-pipe, https://chatgpt.com/share/681d03ce-598c-8009-a7e1-bc5bc09253fc
+
+data_clean <- minimum_wage_data |>
+  mutate(year = year(effective_date)) |>
+  left_join(party_data,by = join_by(year, state)) |>
+  mutate(party = case_when(str_detect(pres_elect, "DEMOCRAT") ~ "Democrat",
+                           str_detect(pres_elect, "REPUBLICAN") ~ "Republican")) |>
+  mutate(prop_pop = str_extract(pres_elect, "\\(([^)]+)\\)")) |>
+  mutate(prop_pop = str_remove_all(prop_pop, "[()%]")) |>
+  mutate(prop_pop = as.numeric(prop_pop)) |>
+  mutate(prop_pop = prop_pop / 100) 
+
+slice_tail(data_clean, n = 2) |> 
+  kable()
+  
+```
+
+**Question 2.**
+
+```{r}
+# https://chatgpt.com/share/681d11cb-4ce0-8009-a23f-b4a00fa40149
+
+data_clean |>
+  filter(year == 1990 | year == 2000 | year == 2010) |>
+  drop_na(pres_elect, party) |>
+  mutate(strength = case_when(prop_pop >= 0.55 ~ "Strong",
+                              prop_pop > 0.5 & prop_pop < 0.55 ~ "Moderate",
+                              prop_pop <= 0.5 ~ "Weak" ),
+         strength = factor(strength, levels = c("Strong", "Moderate", "Weak"))) |>
+  select(state, state_minimum_wage_2020_dollars, year : strength) |>
+  group_by(party, strength, year) |>
+  summarise(avg_min_wage = round(mean(state_minimum_wage_2020_dollars), 2), .groups = "drop") |>
+  pivot_wider(names_from = year, values_from = avg_min_wage, names_prefix = "avg_") |>
+  kable()
+
+```
+
+### Open-Ended Analysis
+
+**Description**: The data I will be using is the state’s minimum wage from the years 1968 to 2020. The data includes the 50 U.S. states, plus Washington D.C., Guam, and Puerto Rico. The other data set is presidential voting information for US states from 1976 to 2020 (excludes Washington D.C. and US territories). The regions are separated by East region, West Region and Central Region. 
+
+**Research Questions**: Do the coastal regions tend to have higher minimum wage than the central region? Does political leanings of regions influence minimum wage?
+
+**Description of Table**: The table shows the average minimum wage per region by party from the years 1976 to 2020.
+
+**Table**:
+
+```{r}
+
+east_region <- c(
+  "Maine", "New Hampshire", "Vermont", "Massachusetts", "Rhode Island", 
+  "Connecticut", "New York", "New Jersey", "Pennsylvania", "Delaware", 
+  "Maryland", "Virginia", "West Virginia", "North Carolina", 
+  "South Carolina", "Georgia", "Florida"
+)
+
+central_region <- c(
+  "Ohio", "Indiana", "Illinois", "Michigan", "Wisconsin", 
+  "Minnesota", "Iowa", "Missouri", "North Dakota", "South Dakota", 
+  "Nebraska", "Kansas", "Kentucky", "Tennessee", "Mississippi", 
+  "Alabama", "Arkansas", "Louisiana", "Texas", "Oklahoma"
+)
+
+west_region <- c(
+  "Montana", "Idaho", "Wyoming", "Colorado", "New Mexico", 
+  "Arizona", "Utah", "Nevada", "California", "Oregon", 
+  "Washington", "Alaska", "Hawaii"
+)
+
+data_clean <- data_clean |>
+  mutate(region = case_when(state %in% east_region ~ "East Region",
+                            state %in% central_region ~ "Central Region",
+                            state %in% west_region ~ "West Region")) |>
+  drop_na(region) |>
+  select(state, state_minimum_wage_2020_dollars, year, party : region)
+
+number_party <- data_clean |> 
+  drop_na(party) |>
+  count(party, region)
+
+minimum_wages <- data_clean |> 
+  drop_na(party) |>
+  group_by(party, region) |>
+  summarise(avg_min_wage = round(mean(state_minimum_wage_2020_dollars), 2))
+
+inner_join(number_party, minimum_wages, join_by(party, region)) |>
+  arrange(region) |>
+  kable()
+```
+
+
+
+**Analysis of Table**: From the table you can see that the central region is predominantly republican and the east and west region tend to be evenly democratic and republican. You can see that in all three regions that the minimum wage average for democrats was higher than the minimum wage average for the republican party.
+
+**Description of Plot**: The plot is showing the average minimum wage per region from the year 1968 to 2020.
+
+**Plot**:
+
+```{r}
+# https://chatgpt.com/share/681d2989-5628-8009-b3e8-b6a8303fb6f0
+
+data_clean |>
+  group_by(region, year) |>
+  summarise("avg_minimum_wage" = mean(state_minimum_wage_2020_dollars), .groups = "drop") |>
+
+  ggplot(aes(x = year, y = avg_minimum_wage, color = fct_reorder2(.x = year,
+                                                                 .y = avg_minimum_wage,
+                                                                 .f = region))) +
+  geom_line() +
+  geom_smooth(method = loess) +
+  labs(title = "Average Minimum Wage Over the Years by Regions", x = "Year", y = "Average Minimum Wage", color = "Region Type")
+
+```
+**Analysis of Plot**: From the plot we see that both the west and east region have always been close in average minimum wage, west coast being a bit more over the years. Whereas the central region is consistently a lower average minimum wage compared to the other regions. 
+
+**Conclusion**: Based on the analyses from the table we can confidently say that political leanings of regions do influence the minimum wage. And we can see that the democratic areas of the region consistently have higher minimum wages than the republican areas which can be due to political views on stimulating the economy. Also from the plot we can conclude that coastal regions do have a higher minimum wage compared to the central region which can be due to desirable location and weather leading to higher costs. 
