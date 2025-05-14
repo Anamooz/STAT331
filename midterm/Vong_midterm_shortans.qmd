@@ -1,0 +1,112 @@
+---
+title: "Stat 331/531: Midterm Exam Short Answer"
+date: 5-8-2025
+author: "Trycia Vong"
+format: 
+  html:
+    embed-resources: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+library(tidyverse)
+library(knitr)
+
+everest <- read_csv('everest.csv')
+```
+
+**Question 1.**
+
+```{r}
+# Question 1 code
+
+everest_clean <- everest |>
+  drop_na(highpoint_metres, highpoint_date) |>
+  mutate(highpoint_date = mdy(highpoint_date)) |>
+  mutate(month = month(highpoint_date)) |>
+  mutate(season = as.factor(season)) |>
+  mutate(termination_reason = as.factor(termination_reason)) |>
+  mutate(trekking_agency = as.factor(trekking_agency))
+
+```
+
+**Question 2.**
+
+```{r}
+# Question 2 code
+
+kable(everest_clean |>
+  mutate(success = str_detect(termination_reason, "Success")) |>
+  filter(success == TRUE) |>
+  count() / count(everest_clean))
+
+```
+
+**Question 3.**
+
+```{r}
+# Question 3 code dont want to remove data w the select so im not doing one pipeline
+
+everest_clean <- everest_clean |>
+  mutate(staff_member_ratio = hired_staff / members) 
+
+everest_clean |>
+  select(year, staff_member_ratio, termination_reason) |>
+  slice_max(n = 10, order_by = staff_member_ratio) |>
+  kable()
+
+```
+
+**Question 4.**
+
+Based on the output it looks like every year since 2000, the best month to climb is in May.
+
+
+```{r}
+# Question 4 code
+
+everest_clean |>
+  filter(year >= 2000) |>
+  group_by(year, month) |>
+  summarise(average_highpoint = mean(highpoint_metres, na.rm = T),
+            count = n()) |>
+  arrange(desc(average_highpoint)) |>
+  kable()
+
+```
+
+**Question 5.**
+
+```{r}
+# Question 5 code, would add proportion next column using filters but ran out of time
+
+everest_clean |>
+  group_by(season, oxygen_used) |>
+  count()
+
+```
+
+**Question 6.**
+
+```{r}
+# Question 6 code, would separate by success for the y axis plot by year
+
+everest_clean |>
+  ggplot(aes(x = year)) +
+  geom_line()
+
+```
+
+**Question 7.**
+
+```{r}
+# Question 7 code, want to pivot longer in order to get esp_id and year per row ran out of time
+
+```
