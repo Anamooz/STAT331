@@ -19,7 +19,10 @@ You will write several small functions, then use them to unscramble a message. M
 **1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number.** *This code should not be a function.*
 
 ```{r}
-nums <- 3:12
+nums <- 5:10
+smallestNum <- min(nums)
+divided <- nums / smallestNum
+rounded <- round(divided)
 ```
 
 
@@ -28,7 +31,9 @@ nums <- 3:12
 
 ```{r}
 divide_and_round <- function(vec){
-  
+  smallestNum <- min(vec)
+  divided <- vec / smallestNum
+  return(round(divided)) 
 }
 ```
 
@@ -50,12 +55,16 @@ divide_and_round(test)
 
 ```{r}
 # Write your code for Q5 here.
+no_nines_or_twelves <- function(vec) {
+  return (!(vec %% 9 == 0) & !(vec %% 12 == 0))
+}
 ```
 
 **6. Test your function by running the code below.**
 
 ```{r}
 test <- c(3:12*5, NA)
+test
 no_nines_or_twelves(test)
 ```
 
@@ -66,13 +75,12 @@ no_nines_or_twelves(test)
 :::
 
 ```{r}
-every_other <- function(vec){
+every_other <- function(vec, start = 1){
   
   if(start == 2){
-
-    
+    return(vec[seq_along(vec) %% 2 == 0])
   } else if(start == 1) {
-
+    return(vec[seq_along(vec) %% 2 == 1])
     
   }
   
@@ -96,6 +104,9 @@ every_other(test, start = 2)
 
 ```{r}
 # Write your code for Q9 here.
+shorten <- function(vec,num){
+  return(vec[cumsum(vec) > num])
+}
 ```
 
 
@@ -103,6 +114,7 @@ every_other(test, start = 2)
 
 ```{r}
 # Write code to test the shorten() function here.
+shorten(c(1:10),10) 
 ```
 
 **11. Once you have written your four functions correctly, run the following code:**
