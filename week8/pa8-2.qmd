@@ -17,6 +17,7 @@ execute:
 ```{r setup}
 #| include: false
 library(purrr)
+library(tidyverse)
 ```
 
 [Download starter .qmd template](../student-versions/pas/pa8-2.qmd)
@@ -56,30 +57,44 @@ You do some research on the weights of properly crafted brass instruments, and y
 
 ```{r}
 # Q1 code
+
+qunif(p = 0.95, min = 1.5, max = 3.5)
 ```
 
 **2. What is the 10th percentile for trombone weight?**
 
 ```{r}
 # Q2 code
+
+qnorm(p = 0.10, mean = 4.6, sd = 0.8)
 ```
 
 **3. About what percent of trombones do you expect to be more than 5 pounds?**
 
 ```{r}
 # Q3 code
+
+pnorm(5, mean = 4.6, sd = 0.8, lower.tail = FALSE)
 ```
 
 **4. About what percent of reed instruments do you expect to be more than 5 pounds?**
 
 ```{r}
 # Q4 code
+
+pchisq(5, df = 4, lower.tail = FALSE)
 ```
 
 **5. Simulate 100 random trombone weights. How many of them were below 4 pounds?**
 
 ```{r}
 # Q5 code
+
+set.seed(12345)
+
+fake_data <- tibble(weights = rnorm(100, mean = 4.6, sd = 0.8)) |>
+  filter(weights < 4) |>
+  count()
 ```
 
 ## Catching a Con
@@ -107,13 +122,11 @@ This is your chance to catch Professor Hill in his lie!
 ```{r}
 music_man <- function(n_tromb, n_cor, n_reed){
   
-  trombones <- rnorm(n_tromb, ...)
-  cornets   <- ...
-  reeds     <- ...
-  
-  ...
-  
-  return()
+  trombones <- rnorm(n_tromb, mean = 4.6, sd = 0.8)
+  cornets   <- runif(n_cor, min = 1.5, max = 3.5)
+  reeds     <- rchisq(n_reed, df = 4)
+    
+  return(sum(trombones, cornets, reeds))
   
 }
 ```
@@ -128,8 +141,8 @@ music_man <- function(n_tromb, n_cor, n_reed){
 ```{r}
 set.seed(1957)
 
-my_weights <- map_dbl(.x = ... , 
-                      .f = ~ music_man(n_tromb = 76, ...))
+my_weights <- map_dbl(.x = 1 : 1000 , 
+                      .f = ~ music_man(n_tromb = 76, n_cor = 110, n_reed = 1035))
 ```
 
 ## Canvas submission
@@ -140,4 +153,5 @@ my_weights <- map_dbl(.x = ... ,
 
 ```{r}
 # Canvas submission code
+tibble(my_weights) |> filter(my_weights <= 4532) |> count()
 ```
