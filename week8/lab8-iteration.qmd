@@ -21,6 +21,7 @@ execute:
 library(tidyverse)
 library(knitr)
 library(kableExtra)
+library(tools)
 ```
 
 
@@ -109,12 +110,11 @@ surveys_table |> kable()
 # Q2 code
 surveys_table |>
   arrange(type) |>
-  kable(caption = "The Data Types and Names of each Column from the Surveys Data",
-        col.names = c("Var_Name", "Type")) |>
+  kable(col.names = c("Var_Name", "Type"),
+        caption = "The Data Types and Names of each Column from the Surveys Data",
+        format = "html") |>
   kable_classic(full_width = F, bootstrap_options = "striped") |>
-  row_spec(row = 0, bold = T, align = "c")
-        
-
+  row_spec(row = 0, bold = T, align = "c") 
 
 ```
 
@@ -154,8 +154,6 @@ every demographic.
 
 **4. Recreate the (mainly unformatted) table below using one pipeline. It is okay if the rows are not in the same order in your table.** 
 
-![](images/unformatted-demographics.png){width=50%}
-
 :::callout-note
 Repeat the data cleaning steps that we did in Lab 3 before question 7 to recreate this exact table. And remember that we needed to first only keep one row per instructor.
 :::
@@ -178,9 +176,6 @@ Final tip (not required) - I used the following options in `kable_styling()` to 
 ```                
 
 :::
-
-
-
 
 
 ::: {.callout-note}
@@ -217,14 +212,6 @@ evals_table |> kable()
 
 **5. Now turn that into a very nice table, like one of the examples below using `kable()` and `kableExtra` or `gt`.** 
 
-::: {layout-ncol=2}
-
-![Example 1](images/formatted-demo-1.png){width=80%}
-
-![Example 2](images/formatted-demo-2.png)
-:::
-
-
 
 Your table does not need to copy one of these exactly but it should include:
 
@@ -247,6 +234,7 @@ evals_table |>
   kable_classic(full_width = F, bootstrap_options = "striped") |>
   row_spec(row = 0, bold = T, align = "c") |>
   collapse_rows(columns = 1) |>
+  kable_styling(full_width = F, bootstrap_options = "striped")
   
   
 ```
@@ -273,7 +261,18 @@ Specifically your function should:
 ```{r}
 #| label: data-read-fun
 
-# Q6 code
+# Q6 code, https://chatgpt.com/share/6830dedc-bf64-8009-b1f7-eaa9ecd2f4fd
+
+file_reader <- function(directory) {
+  names <- list.files(directory, pattern = "\\.csv$")
+  full_paths <- file.path(directory, names)
+  files_read <- map(full_paths, ~ read_csv(.x))
+  names(files_read) <- file_path_sans_ext(names)
+  return(files_read)
+}
+
+names(file_reader("../week7"))
+is.list(file_reader("../week7"))
 ```
 
 :::callout-note
@@ -294,5 +293,16 @@ Question 1 asked you to use `across()` to make a table which summarized:
 #| label: map-missing-values-of-fish
 
 #Q7 code
+
+fish |>
+  map_int(~ sum(is.na(.x))) |>
+  enframe(name = "variable", value = "x") |>
+  arrange(desc(x)) |>
+  kable(caption = "Missing Values for Every Variable in Fish Data",
+        col.names = c("Variable", "No. Missing")) |>
+  kable_classic(full_width = F, bootstrap_options = "striped") |>
+  row_spec(row = 0, bold = T, align = "c") |>
+  kable_styling(full_width = F, bootstrap_options = "striped")
+  
 ```
 
