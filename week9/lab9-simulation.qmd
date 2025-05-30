@@ -55,6 +55,8 @@ randomBabies <- function(n_babies){
 ```{r}
 #| label: full-simulation-for-random-babies
 
+set.seed(1234)
+
 results <- map_int(.x = 1:10000,
                    .f = ~ randomBabies(4)
                   )
@@ -213,21 +215,33 @@ mycifun(beta0 = 1, beta1 = 2, n = 1000) |> kable()
 ```{r}
 #| label: run-ci-sim
 
+set.seed(1234)
 
 ci_dat <- map_dfr(.x = 1:1000,
-                  .f = 
+                  .f = ~ mycifun(3, 0.5, 100)
                     )
 ```
 
 **8b. What does one row in the resulting `ci_dat` represent?**
 
-
+One row of ci_dat represents a simulation of simple linear regression of an estimated slope and shows the range of a 95% confidence interval and if the confidence interval covers the true slope of the synthetic data. 
 
 **8c. What is your simulated coverage rate? In otherwords, for what proportion of the iterations was the population slope within the estimated 95% confidence interval? Write your answer as a sentence in Markdown using inline code!**
 
+The simulated coverage rate is `r mean(ci_dat$cover)`.
+
+
 ```{r}
 #| label: sim-cov
+#https://chatgpt.com/share/683897d2-6b64-8009-a060-621336f8504c
 
+mean(ci_dat$cover)
+
+# ci_dat |>
+#   group_by(cover) |>
+#   count() |>
+#   ungroup() |>
+#   mutate(prop = n / sum(n))
 
 ```
 
@@ -236,19 +250,24 @@ ci_dat <- map_dfr(.x = 1:1000,
 
 You can create any visualization that effectively illustrates the concept. I included a plot in the lab assignment online with my idea of an effective plot to illustrate the concept of coverage. Actually, a professor showed me a plot like this in undergrad and I have always remembered it! 
 
-:::callout-tip
-You do not need to exactly copy that plot, even if you choose to do something like it.  A couple of hints to get you started on making a plot like that one:
-
-- Check out `geom_errorbar()`
-- Check out `geom_vline()` for the line indicating the true population slope
-- See [this slide](https://atheobold.github.io/groupworthy-data-science/slides/week-8/iteration-part-2.html#/could-you-remove-your-legend-1) for code from Dr. Theobold to include colors in a title rather than a legend.
-- I took a random sample of 100 simulations to make it easier to look at.
-:::
 
 ```{r}
 #| label: cov-plot
 
-# Q9 code
+# Q9 code, https://chatgpt.com/share/683897d2-6b64-8009-a060-621336f8504c
+
+ci_dat |>
+  ggplot(aes(x = estimate, fill = factor(cover))) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = 0.5, color = "red", linetype = "dashed") +  # true slope
+  labs(
+    title = "Distribution of Estimated Slopes",
+    subtitle = "Split by Whether CI Covered the True Slope of 0.5",
+    x = "Estimated Slope",
+    y = "Density",
+    fill = "CI Coverage"
+  ) 
+
 ```
 
 
