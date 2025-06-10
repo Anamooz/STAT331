@@ -1,0 +1,30 @@
+---
+title: "Final Exam"
+format: html
+  html:
+    code-tools: true
+    toc: true
+    number-sections: true
+    embed-resources: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+
+
+## Data Setup
+
+
+```{r}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(purrr)
+data <- read_csv("national_park_trails.csv")
+```
+
+**Bold**
